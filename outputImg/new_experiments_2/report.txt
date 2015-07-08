@@ -1,0 +1,450 @@
+ACO FOR IMAGE SEGMENTATION
+=============================
+0:	Data file: C:/Users/CarlosG/Documents/GitHub/AnotherACOImageSegmentation/AnotherACOImageSegmentation/inputImg/19952transverse2_64.gif
+0.08:	Generating original image from matrix
+0.08:	Generating output image
+0.11:	Resulting image stored in: C:/Users/CarlosG/Documents/GitHub/AnotherACOImageSegmentation/AnotherACOImageSegmentation/outputImg/19952transverse2_64_original.bmp
+0.11:	Starting background filtering process
+ACO FOR IMAGE THRESHOLDING
+=============================
+Data file: C:/Users/CarlosG/Documents/GitHub/AnotherACOImageSegmentation/AnotherACOImageSegmentation/inputImg/19952transverse2_64.gif
+Generating original image from matrix
+Generating output image
+Resulting image stored in: C:/Users/CarlosG/Documents/GitHub/ACOImageSegmentation/AntColonyImageSegmentation/outputImg/original.bmp
+Number of Rows: 258
+Number of Columns: 258
+Number of Ants in Colony: 66564
+Starting computation at: Sat Dec 14 19:36:05 COT 2013
+INITIALIZING PHEROMONE MATRIX
+Initial pheromone value: 1.401298464324817E-45
+STARTING ITERATIONS
+Number of iterations: 15
+Current iteration: 0
+CLEARING ANT SOLUTIONS
+BUILDING ANT SOLUTIONS
+UPDATING PHEROMONE TRAILS
+Depositing pheromone
+Performing evaporation on all edges
+Evaporation ratio: 0.5
+Current iteration: 1
+CLEARING ANT SOLUTIONS
+BUILDING ANT SOLUTIONS
+UPDATING PHEROMONE TRAILS
+Depositing pheromone
+Performing evaporation on all edges
+Evaporation ratio: 0.5
+Current iteration: 2
+CLEARING ANT SOLUTIONS
+BUILDING ANT SOLUTIONS
+UPDATING PHEROMONE TRAILS
+Depositing pheromone
+Performing evaporation on all edges
+Evaporation ratio: 0.5
+Current iteration: 3
+CLEARING ANT SOLUTIONS
+BUILDING ANT SOLUTIONS
+UPDATING PHEROMONE TRAILS
+Depositing pheromone
+Performing evaporation on all edges
+Evaporation ratio: 0.5
+Current iteration: 4
+CLEARING ANT SOLUTIONS
+BUILDING ANT SOLUTIONS
+UPDATING PHEROMONE TRAILS
+Depositing pheromone
+Performing evaporation on all edges
+Evaporation ratio: 0.5
+Current iteration: 5
+CLEARING ANT SOLUTIONS
+BUILDING ANT SOLUTIONS
+UPDATING PHEROMONE TRAILS
+Depositing pheromone
+Performing evaporation on all edges
+Evaporation ratio: 0.5
+Current iteration: 6
+CLEARING ANT SOLUTIONS
+BUILDING ANT SOLUTIONS
+UPDATING PHEROMONE TRAILS
+Depositing pheromone
+Performing evaporation on all edges
+Evaporation ratio: 0.5
+Current iteration: 7
+CLEARING ANT SOLUTIONS
+BUILDING ANT SOLUTIONS
+UPDATING PHEROMONE TRAILS
+Depositing pheromone
+Performing evaporation on all edges
+Evaporation ratio: 0.5
+Current iteration: 8
+CLEARING ANT SOLUTIONS
+BUILDING ANT SOLUTIONS
+UPDATING PHEROMONE TRAILS
+Depositing pheromone
+Performing evaporation on all edges
+Evaporation ratio: 0.5
+Current iteration: 9
+CLEARING ANT SOLUTIONS
+BUILDING ANT SOLUTIONS
+UPDATING PHEROMONE TRAILS
+Depositing pheromone
+Performing evaporation on all edges
+Evaporation ratio: 0.5
+Current iteration: 10
+CLEARING ANT SOLUTIONS
+BUILDING ANT SOLUTIONS
+UPDATING PHEROMONE TRAILS
+Depositing pheromone
+Performing evaporation on all edges
+Evaporation ratio: 0.5
+Current iteration: 11
+CLEARING ANT SOLUTIONS
+BUILDING ANT SOLUTIONS
+UPDATING PHEROMONE TRAILS
+Depositing pheromone
+Performing evaporation on all edges
+Evaporation ratio: 0.5
+Current iteration: 12
+CLEARING ANT SOLUTIONS
+BUILDING ANT SOLUTIONS
+UPDATING PHEROMONE TRAILS
+Depositing pheromone
+Performing evaporation on all edges
+Evaporation ratio: 0.5
+Current iteration: 13
+CLEARING ANT SOLUTIONS
+BUILDING ANT SOLUTIONS
+UPDATING PHEROMONE TRAILS
+Depositing pheromone
+Performing evaporation on all edges
+Evaporation ratio: 0.5
+Current iteration: 14
+CLEARING ANT SOLUTIONS
+BUILDING ANT SOLUTIONS
+UPDATING PHEROMONE TRAILS
+Depositing pheromone
+Performing evaporation on all edges
+Evaporation ratio: 0.5
+EXECUTION FINISHED
+Starting K-means clustering
+Normalizing pheromone matrix
+currentMin: 5.4228396911842074E-5
+currentMax: 0.002499999992263526
+Generating pheromone distribution image
+Generating output image
+Resulting image stored in: C:/Users/CarlosG/Documents/GitHub/ACOImageSegmentation/AntColonyImageSegmentation/outputImg/pheromone.bmp
+Finishing computation at: Sat Dec 14 19:36:30 COT 2013
+Duration (in seconds): 25.34644931
+25.54:	Filter applied
+25.54:	Number of Clusters: 3
+25.54:	Number of Píxels: 66564
+0:	Number of Ants in Colony: 10
+0:	Starting computation at: Sat Dec 14 19:36:30 COT 2013
+0:	INITIALIZING PHEROMONE MATRIX
+0:	Initial pheromone value: 0.03333333333333333
+0.01:	STARTING ITERATIONS
+0.01:	Number of iterations: 10
+0.01:	Current iteration: 0
+0.01:	CLEARING ANT SOLUTIONS
+0.01:	BUILDING ANT SOLUTIONS
+0.01:	Ant 0 is building a partition ...
+9.02:	Ant 1 is building a partition ...
+17.48:	Ant 2 is building a partition ...
+26.07:	Ant 3 is building a partition ...
+34.17:	Ant 4 is building a partition ...
+43.04:	Ant 5 is building a partition ...
+51.59:	Ant 6 is building a partition ...
+60.4:	Ant 7 is building a partition ...
+69.09:	Ant 8 is building a partition ...
+77.77:	Ant 9 is building a partition ...
+86.47:	UPDATING PHEROMONE TRAILS
+86.47:	Depositing pheromone
+86.47:	Depositing pheromone on Best Ant trail.
+86.47:	Starting  getBestAnt.
+99.23:	Ending  getBestAnt.
+99.23:	Starting  depositPheromoneInAntPath.
+99.24:	Ending  depositPheromoneInAntPath.
+99.24:	Performing evaporation on all edges
+99.24:	Evaporation ratio: 0.9
+99.25:	GETTING BEST SOLUTION FOUND
+99.25:	Starting  getBestAnt.
+99.25:	Ending  getBestAnt.
+99.25:	Best solution so far > Quality: 60.555439198996126
+99.25:	Current iteration: 1
+99.25:	CLEARING ANT SOLUTIONS
+99.25:	BUILDING ANT SOLUTIONS
+99.25:	Ant 0 is building a partition ...
+107.94:	Ant 1 is building a partition ...
+116.58:	Ant 2 is building a partition ...
+125.22:	Ant 3 is building a partition ...
+133.76:	Ant 4 is building a partition ...
+142.73:	Ant 5 is building a partition ...
+149.62:	Ant 6 is building a partition ...
+158.36:	Ant 7 is building a partition ...
+167.6:	Ant 8 is building a partition ...
+176.49:	Ant 9 is building a partition ...
+185.31:	UPDATING PHEROMONE TRAILS
+185.31:	Depositing pheromone
+185.31:	Depositing pheromone on Best Ant trail.
+185.31:	Starting  getBestAnt.
+196.1:	Ending  getBestAnt.
+196.1:	Starting  depositPheromoneInAntPath.
+196.1:	Ending  depositPheromoneInAntPath.
+196.1:	Performing evaporation on all edges
+196.1:	Evaporation ratio: 0.9
+196.1:	GETTING BEST SOLUTION FOUND
+196.1:	Starting  getBestAnt.
+196.1:	Ending  getBestAnt.
+196.1:	Best solution so far > Quality: 60.555439198996126
+196.1:	Current iteration: 2
+196.1:	CLEARING ANT SOLUTIONS
+196.1:	BUILDING ANT SOLUTIONS
+196.1:	Ant 0 is building a partition ...
+204.59:	Ant 1 is building a partition ...
+213.11:	Ant 2 is building a partition ...
+221.8:	Ant 3 is building a partition ...
+230.54:	Ant 4 is building a partition ...
+239.12:	Ant 5 is building a partition ...
+247.78:	Ant 6 is building a partition ...
+254.92:	Ant 7 is building a partition ...
+263.5:	Ant 8 is building a partition ...
+272.05:	Ant 9 is building a partition ...
+280.68:	UPDATING PHEROMONE TRAILS
+280.68:	Depositing pheromone
+280.68:	Depositing pheromone on Best Ant trail.
+280.68:	Starting  getBestAnt.
+290.7:	Ending  getBestAnt.
+290.71:	Starting  depositPheromoneInAntPath.
+290.71:	Ending  depositPheromoneInAntPath.
+290.71:	Performing evaporation on all edges
+290.71:	Evaporation ratio: 0.9
+290.71:	GETTING BEST SOLUTION FOUND
+290.71:	Starting  getBestAnt.
+290.71:	Ending  getBestAnt.
+290.71:	Best solution so far > Quality: 60.555439198996126
+290.71:	Current iteration: 3
+290.71:	CLEARING ANT SOLUTIONS
+290.71:	BUILDING ANT SOLUTIONS
+290.71:	Ant 0 is building a partition ...
+299.38:	Ant 1 is building a partition ...
+308.03:	Ant 2 is building a partition ...
+316.77:	Ant 3 is building a partition ...
+325.29:	Ant 4 is building a partition ...
+333.86:	Ant 5 is building a partition ...
+342.72:	Ant 6 is building a partition ...
+350.5:	Ant 7 is building a partition ...
+359.02:	Ant 8 is building a partition ...
+367.76:	Ant 9 is building a partition ...
+376.27:	UPDATING PHEROMONE TRAILS
+376.27:	Depositing pheromone
+376.27:	Depositing pheromone on Best Ant trail.
+376.27:	Starting  getBestAnt.
+385.53:	Ending  getBestAnt.
+385.53:	Starting  depositPheromoneInAntPath.
+385.53:	Ending  depositPheromoneInAntPath.
+385.53:	Performing evaporation on all edges
+385.53:	Evaporation ratio: 0.9
+385.54:	GETTING BEST SOLUTION FOUND
+385.54:	Starting  getBestAnt.
+385.54:	Ending  getBestAnt.
+385.54:	Best solution so far > Quality: 45.810789349879045
+385.54:	Current iteration: 4
+385.54:	CLEARING ANT SOLUTIONS
+385.54:	BUILDING ANT SOLUTIONS
+385.54:	Ant 0 is building a partition ...
+394.72:	Ant 1 is building a partition ...
+403.76:	Ant 2 is building a partition ...
+412.68:	Ant 3 is building a partition ...
+421.32:	Ant 4 is building a partition ...
+429.85:	Ant 5 is building a partition ...
+438.3:	Ant 6 is building a partition ...
+445.16:	Ant 7 is building a partition ...
+453.84:	Ant 8 is building a partition ...
+462.35:	Ant 9 is building a partition ...
+471.08:	UPDATING PHEROMONE TRAILS
+471.08:	Depositing pheromone
+471.08:	Depositing pheromone on Best Ant trail.
+471.08:	Starting  getBestAnt.
+479.55:	Ending  getBestAnt.
+479.55:	Starting  depositPheromoneInAntPath.
+479.55:	Ending  depositPheromoneInAntPath.
+479.55:	Performing evaporation on all edges
+479.55:	Evaporation ratio: 0.9
+479.55:	GETTING BEST SOLUTION FOUND
+479.55:	Starting  getBestAnt.
+479.55:	Ending  getBestAnt.
+479.55:	Best solution so far > Quality: 45.06967732910706
+479.56:	Current iteration: 5
+479.56:	CLEARING ANT SOLUTIONS
+479.56:	BUILDING ANT SOLUTIONS
+479.56:	Ant 0 is building a partition ...
+488.19:	Ant 1 is building a partition ...
+496.89:	Ant 2 is building a partition ...
+505.61:	Ant 3 is building a partition ...
+514.04:	Ant 4 is building a partition ...
+522.64:	Ant 5 is building a partition ...
+531.04:	Ant 6 is building a partition ...
+539.79:	Ant 7 is building a partition ...
+548.52:	Ant 8 is building a partition ...
+557.18:	Ant 9 is building a partition ...
+565.94:	UPDATING PHEROMONE TRAILS
+565.94:	Depositing pheromone
+565.94:	Depositing pheromone on Best Ant trail.
+565.94:	Starting  getBestAnt.
+575.8:	Ending  getBestAnt.
+575.8:	Starting  depositPheromoneInAntPath.
+575.8:	Ending  depositPheromoneInAntPath.
+575.8:	Performing evaporation on all edges
+575.8:	Evaporation ratio: 0.9
+575.8:	GETTING BEST SOLUTION FOUND
+575.8:	Starting  getBestAnt.
+575.8:	Ending  getBestAnt.
+575.8:	Best solution so far > Quality: 44.79239181697045
+575.8:	Current iteration: 6
+575.8:	CLEARING ANT SOLUTIONS
+575.8:	BUILDING ANT SOLUTIONS
+575.8:	Ant 0 is building a partition ...
+584.4:	Ant 1 is building a partition ...
+593:	Ant 2 is building a partition ...
+601.65:	Ant 3 is building a partition ...
+610.62:	Ant 4 is building a partition ...
+617.5:	Ant 5 is building a partition ...
+626.29:	Ant 6 is building a partition ...
+634.8:	Ant 7 is building a partition ...
+643.32:	Ant 8 is building a partition ...
+652.05:	Ant 9 is building a partition ...
+660.59:	UPDATING PHEROMONE TRAILS
+660.59:	Depositing pheromone
+660.59:	Depositing pheromone on Best Ant trail.
+660.59:	Starting  getBestAnt.
+671.28:	Ending  getBestAnt.
+671.28:	Starting  depositPheromoneInAntPath.
+671.28:	Ending  depositPheromoneInAntPath.
+671.28:	Performing evaporation on all edges
+671.28:	Evaporation ratio: 0.9
+671.28:	GETTING BEST SOLUTION FOUND
+671.28:	Starting  getBestAnt.
+671.28:	Ending  getBestAnt.
+671.28:	Best solution so far > Quality: 44.79239181697045
+671.28:	Current iteration: 7
+671.28:	CLEARING ANT SOLUTIONS
+671.28:	BUILDING ANT SOLUTIONS
+671.28:	Ant 0 is building a partition ...
+679.94:	Ant 1 is building a partition ...
+688.42:	Ant 2 is building a partition ...
+695.37:	Ant 3 is building a partition ...
+704:	Ant 4 is building a partition ...
+712.69:	Ant 5 is building a partition ...
+721.33:	Ant 6 is building a partition ...
+730.01:	Ant 7 is building a partition ...
+738.67:	Ant 8 is building a partition ...
+747.31:	Ant 9 is building a partition ...
+755.91:	UPDATING PHEROMONE TRAILS
+755.91:	Depositing pheromone
+755.91:	Depositing pheromone on Best Ant trail.
+755.91:	Starting  getBestAnt.
+766.72:	Ending  getBestAnt.
+766.72:	Starting  depositPheromoneInAntPath.
+766.72:	Ending  depositPheromoneInAntPath.
+766.72:	Performing evaporation on all edges
+766.72:	Evaporation ratio: 0.9
+766.72:	GETTING BEST SOLUTION FOUND
+766.72:	Starting  getBestAnt.
+766.72:	Ending  getBestAnt.
+766.72:	Best solution so far > Quality: 44.557820467371414
+766.72:	Current iteration: 8
+766.72:	CLEARING ANT SOLUTIONS
+766.72:	BUILDING ANT SOLUTIONS
+766.72:	Ant 0 is building a partition ...
+773.9:	Ant 1 is building a partition ...
+782.74:	Ant 2 is building a partition ...
+791.73:	Ant 3 is building a partition ...
+800.61:	Ant 4 is building a partition ...
+809.37:	Ant 5 is building a partition ...
+818.12:	Ant 6 is building a partition ...
+827.29:	Ant 7 is building a partition ...
+836.11:	Ant 8 is building a partition ...
+844.83:	Ant 9 is building a partition ...
+853.49:	UPDATING PHEROMONE TRAILS
+853.49:	Depositing pheromone
+853.49:	Depositing pheromone on Best Ant trail.
+853.49:	Starting  getBestAnt.
+858.67:	Ending  getBestAnt.
+858.67:	Starting  depositPheromoneInAntPath.
+858.67:	Ending  depositPheromoneInAntPath.
+858.67:	Performing evaporation on all edges
+858.67:	Evaporation ratio: 0.9
+858.67:	GETTING BEST SOLUTION FOUND
+858.67:	Starting  getBestAnt.
+858.67:	Ending  getBestAnt.
+858.67:	Best solution so far > Quality: 44.02067535890957
+858.67:	Current iteration: 9
+858.67:	CLEARING ANT SOLUTIONS
+858.67:	BUILDING ANT SOLUTIONS
+858.67:	Ant 0 is building a partition ...
+867.37:	Ant 1 is building a partition ...
+876.02:	Ant 2 is building a partition ...
+884.61:	Ant 3 is building a partition ...
+893.14:	Ant 4 is building a partition ...
+901.83:	Ant 5 is building a partition ...
+910.3:	Ant 6 is building a partition ...
+917.4:	Ant 7 is building a partition ...
+926.25:	Ant 8 is building a partition ...
+934.95:	Ant 9 is building a partition ...
+943.88:	UPDATING PHEROMONE TRAILS
+943.88:	Depositing pheromone
+943.88:	Depositing pheromone on Best Ant trail.
+943.88:	Starting  getBestAnt.
+951.5:	Ending  getBestAnt.
+951.5:	Starting  depositPheromoneInAntPath.
+951.5:	Ending  depositPheromoneInAntPath.
+951.5:	Performing evaporation on all edges
+951.5:	Evaporation ratio: 0.9
+951.51:	GETTING BEST SOLUTION FOUND
+951.51:	Starting  getBestAnt.
+951.51:	Ending  getBestAnt.
+951.51:	Best solution so far > Quality: 42.86972561618446
+951.51:	EXECUTION FINISHED
+951.51:	Best partition quality: 42.86972561618446
+951.51:	Finishing computation at: Sat Dec 14 19:52:21 COT 2013
+951.51:	Duration (in seconds): 951.506040627
+951.51:	Generating segmented image
+951.51:	Generating output image
+951.53:	Resulting image stored in: C:/Users/CarlosG/Documents/GitHub/AnotherACOImageSegmentation/AnotherACOImageSegmentation/outputImg/19952transverse2_64_output.bmp
+951.53:	Generating images per cluster
+951.54:	Generating output image
+951.55:	Resulting image stored in: C:/Users/CarlosG/Documents/GitHub/AnotherACOImageSegmentation/AnotherACOImageSegmentation/outputImg/0_19952transverse2_64_cluster.bmp
+951.55:	Generating output image
+951.57:	Resulting image stored in: C:/Users/CarlosG/Documents/GitHub/AnotherACOImageSegmentation/AnotherACOImageSegmentation/outputImg/1_19952transverse2_64_cluster.bmp
+951.57:	Generating output image
+951.58:	Resulting image stored in: C:/Users/CarlosG/Documents/GitHub/AnotherACOImageSegmentation/AnotherACOImageSegmentation/outputImg/2_19952transverse2_64_cluster.bmp
+
+
+EXPERIMENT EXECUTION REPORT
+===============================
+Input file: 19952transverse2_64.gif
+Evaporation parameter: 0.9
+Number of steps: 15
+Number of iterations: 10
+Pheromone importance: 1
+Heuristic importance: -1.0
+Extra weight: 0.6
+Parameter A for Cost Function: 5000
+Parameter B for Cost Function: 10
+Initial Pheromone Value: 1.401298464324817E-45
+Number of Clústers: 3
+
+CSF: BDP = 0.2926608275445485 BF = 3.302717578259374 JSI = 0.22513940520446096 FPR = 0.15178726700709846 FNR = 0.7073391724554515
+Reference File ->C:/Users/CarlosG/Documents/GitHub/AnotherACOImageSegmentation/AnotherACOImageSegmentation/inputImg/csf_21130transverse1_64.gif
+Generated File ->C:/Users/CarlosG/Documents/GitHub/AnotherACOImageSegmentation/AnotherACOImageSegmentation/outputImg/2_19952transverse2_64_cluster.bmp
+
+
+Grey Matter: BDP = 0.31641173427916947 BF = 0.46053246146660437 JSI = 0.66049668363412 FPR = 0.06854123944249418 FNR = 0.6835882657208305
+Reference File ->C:/Users/CarlosG/Documents/GitHub/AnotherACOImageSegmentation/AnotherACOImageSegmentation/inputImg/grey_20342transverse1_64.gif
+Generated File ->C:/Users/CarlosG/Documents/GitHub/AnotherACOImageSegmentation/AnotherACOImageSegmentation/outputImg/2_19952transverse2_64_cluster.bmp
+
+
+White Matter: BDP = 0.30471994965387034 BF = 0.23034558722291065 JSI = 0.7551466001247661 FPR = 0.028540234394991384 FNR = 0.6952800503461296
+Reference File ->C:/Users/CarlosG/Documents/GitHub/AnotherACOImageSegmentation/AnotherACOImageSegmentation/inputImg/white_20358transverse1_64.gif
+Generated File ->C:/Users/CarlosG/Documents/GitHub/AnotherACOImageSegmentation/AnotherACOImageSegmentation/outputImg/1_19952transverse2_64_cluster.bmp
+
+

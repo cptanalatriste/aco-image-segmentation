@@ -1,0 +1,143 @@
+ACO FOR IMAGE SEGMENTATION
+=============================
+0:	Data file: C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/inputImg/19952transverse2_64.gif
+0.06:	Generating original image from matrix
+0.06:	Generating output image
+0.1:	Resulting image stored in: C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/outputImg/19952transverse2_64_original.bmp
+0.11:	Number of Clusters: 4
+0.11:	Number of Píxels: 35465
+0:	Number of Ants in Colony: 5
+0.01:	Starting computation at: Thu Dec 12 16:27:03 COT 2013
+0.01:	INITIALIZING PHEROMONE MATRIX
+0.01:	Initial pheromone value: 0.03333333333333333
+0.01:	STARTING ITERATIONS
+0.01:	Number of iterations: 5
+0.01:	Current iteration: 0
+0.01:	CLEARING ANT SOLUTIONS
+0.02:	BUILDING ANT SOLUTIONS
+0.02:	Ant 0 is building a partition ...
+18.58:	Ant 1 is building a partition ...
+37.84:	Ant 2 is building a partition ...
+56.63:	Ant 3 is building a partition ...
+75.74:	Ant 4 is building a partition ...
+95.19:	UPDATING PHEROMONE TRAILS
+95.19:	Depositing pheromone
+95.19:	Depositing pheromone on Best Ant trail.
+95.19:	Starting  getBestAnt.
+125.74:	Ending  getBestAnt.
+125.74:	Starting  depositPheromoneInAntPath.
+125.75:	Ending  depositPheromoneInAntPath.
+125.75:	Performing evaporation on all edges
+125.75:	Evaporation ratio: 0.9
+125.75:	GETTING BEST SOLUTION FOUND
+125.75:	Starting  getBestAnt.
+125.75:	Ending  getBestAnt.
+125.75:	Best solution so far > Quality: 53.56350316869906
+125.75:	Current iteration: 1
+125.75:	CLEARING ANT SOLUTIONS
+125.75:	BUILDING ANT SOLUTIONS
+125.75:	Ant 0 is building a partition ...
+144.75:	Ant 1 is building a partition ...
+163.56:	Ant 2 is building a partition ...
+183.26:	Ant 3 is building a partition ...
+202.41:	Ant 4 is building a partition ...
+221.89:	UPDATING PHEROMONE TRAILS
+221.89:	Depositing pheromone
+221.89:	Depositing pheromone on Best Ant trail.
+221.89:	Starting  getBestAnt.
+251.61:	Ending  getBestAnt.
+251.61:	Starting  depositPheromoneInAntPath.
+251.61:	Ending  depositPheromoneInAntPath.
+251.61:	Performing evaporation on all edges
+251.61:	Evaporation ratio: 0.9
+251.62:	GETTING BEST SOLUTION FOUND
+251.62:	Starting  getBestAnt.
+251.62:	Ending  getBestAnt.
+251.62:	Best solution so far > Quality: 52.99615547350923
+251.62:	Current iteration: 2
+251.62:	CLEARING ANT SOLUTIONS
+251.62:	BUILDING ANT SOLUTIONS
+251.62:	Ant 0 is building a partition ...
+271.6:	Ant 1 is building a partition ...
+290.42:	Ant 2 is building a partition ...
+309.83:	Ant 3 is building a partition ...
+329.11:	Ant 4 is building a partition ...
+348.26:	UPDATING PHEROMONE TRAILS
+348.26:	Depositing pheromone
+348.26:	Depositing pheromone on Best Ant trail.
+348.26:	Starting  getBestAnt.
+378.32:	Ending  getBestAnt.
+378.32:	Starting  depositPheromoneInAntPath.
+378.32:	Ending  depositPheromoneInAntPath.
+378.32:	Performing evaporation on all edges
+378.32:	Evaporation ratio: 0.9
+378.32:	GETTING BEST SOLUTION FOUND
+378.32:	Starting  getBestAnt.
+378.32:	Ending  getBestAnt.
+378.32:	Best solution so far > Quality: 50.86676339459168
+378.32:	Current iteration: 3
+378.32:	CLEARING ANT SOLUTIONS
+378.32:	BUILDING ANT SOLUTIONS
+378.32:	Ant 0 is building a partition ...
+395.79:	Ant 1 is building a partition ...
+413.44:	Ant 2 is building a partition ...
+431.06:	Ant 3 is building a partition ...
+448.79:	Ant 4 is building a partition ...
+466.46:	UPDATING PHEROMONE TRAILS
+466.46:	Depositing pheromone
+466.46:	Depositing pheromone on Best Ant trail.
+466.46:	Starting  getBestAnt.
+494.55:	Ending  getBestAnt.
+494.55:	Starting  depositPheromoneInAntPath.
+494.55:	Ending  depositPheromoneInAntPath.
+494.55:	Performing evaporation on all edges
+494.55:	Evaporation ratio: 0.9
+494.55:	GETTING BEST SOLUTION FOUND
+494.55:	Starting  getBestAnt.
+494.55:	Ending  getBestAnt.
+494.55:	Best solution so far > Quality: 50.575633352846225
+494.55:	Current iteration: 4
+494.55:	CLEARING ANT SOLUTIONS
+494.55:	BUILDING ANT SOLUTIONS
+494.55:	Ant 0 is building a partition ...
+512.28:	Ant 1 is building a partition ...
+529.8:	Ant 2 is building a partition ...
+547.47:	Ant 3 is building a partition ...
+565.3:	Ant 4 is building a partition ...
+583.19:	UPDATING PHEROMONE TRAILS
+583.19:	Depositing pheromone
+583.19:	Depositing pheromone on Best Ant trail.
+583.19:	Starting  getBestAnt.
+608.17:	Ending  getBestAnt.
+608.17:	Starting  depositPheromoneInAntPath.
+608.17:	Ending  depositPheromoneInAntPath.
+608.17:	Performing evaporation on all edges
+608.17:	Evaporation ratio: 0.9
+608.17:	GETTING BEST SOLUTION FOUND
+608.17:	Starting  getBestAnt.
+608.17:	Ending  getBestAnt.
+608.17:	Best solution so far > Quality: 49.58804476253707
+608.17:	EXECUTION FINISHED
+608.17:	Best partition quality: 49.58804476253707
+608.17:	Finishing computation at: Thu Dec 12 16:37:11 COT 2013
+608.17:	Duration (in seconds): 608.173740731
+608.17:	Generating segmented image
+608.18:	Generating output image
+608.2:	Resulting image stored in: C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/outputImg/19952transverse2_64_output.bmp
+608.2:	Generating images per cluster
+608.2:	Generating output image
+608.22:	Resulting image stored in: C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/outputImg/0_19952transverse2_64_cluster.bmp
+608.22:	Generating output image
+608.24:	Resulting image stored in: C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/outputImg/1_19952transverse2_64_cluster.bmp
+608.24:	Generating output image
+608.25:	Resulting image stored in: C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/outputImg/2_19952transverse2_64_cluster.bmp
+608.25:	Generating output image
+608.26:	Resulting image stored in: C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/outputImg/3_19952transverse2_64_cluster.bmp
+
+
+EXPERIMENT EXECUTION REPORT
+===============================
+java.lang.Exception: Images are not comparable
+	at pe.edu.pucp.acoseg.exper.ImageComparator.executeComparison(ImageComparator.java:52)
+	at pe.edu.pucp.acoseg.exper.TestSuite.executeReport(TestSuite.java:52)
+	at pe.edu.pucp.acoseg.ACOImageSegmentation.main(ACOImageSegmentation.java:128)

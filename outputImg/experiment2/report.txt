@@ -1,0 +1,191 @@
+ACO FOR IMAGE SEGMENTATION
+=============================
+0:	Data file: C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/inputImg/19952transverse2_64.gif
+0.04:	Generating original image from matrix
+0.04:	Generating output image
+0.07:	Resulting image stored in: C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/outputImg/19952transverse2_64_original.bmp
+0.07:	Number of Clusters: 4
+0.07:	Number of Píxels: 35465
+0:	Number of Ants in Colony: 10
+0.01:	Starting computation at: Thu Dec 12 16:50:29 COT 2013
+0.01:	INITIALIZING PHEROMONE MATRIX
+0.01:	Initial pheromone value: 0.03333333333333333
+0.01:	STARTING ITERATIONS
+0.01:	Number of iterations: 5
+0.01:	Current iteration: 0
+0.01:	CLEARING ANT SOLUTIONS
+0.02:	BUILDING ANT SOLUTIONS
+0.02:	Ant 0 is building a partition ...
+16.31:	Ant 1 is building a partition ...
+32.01:	Ant 2 is building a partition ...
+47.66:	Ant 3 is building a partition ...
+63.28:	Ant 4 is building a partition ...
+78.55:	Ant 5 is building a partition ...
+94.07:	Ant 6 is building a partition ...
+110.29:	Ant 7 is building a partition ...
+126.56:	Ant 8 is building a partition ...
+142.68:	Ant 9 is building a partition ...
+158.86:	UPDATING PHEROMONE TRAILS
+158.86:	Depositing pheromone
+158.87:	Depositing pheromone on Best Ant trail.
+158.87:	Starting  getBestAnt.
+208.99:	Ending  getBestAnt.
+208.99:	Starting  depositPheromoneInAntPath.
+208.99:	Ending  depositPheromoneInAntPath.
+209:	Performing evaporation on all edges
+209:	Evaporation ratio: 0.9
+209:	GETTING BEST SOLUTION FOUND
+209:	Starting  getBestAnt.
+209:	Ending  getBestAnt.
+209:	Best solution so far > Quality: 53.774768700140065
+209:	Current iteration: 1
+209:	CLEARING ANT SOLUTIONS
+209:	BUILDING ANT SOLUTIONS
+209:	Ant 0 is building a partition ...
+223.76:	Ant 1 is building a partition ...
+238.95:	Ant 2 is building a partition ...
+253.79:	Ant 3 is building a partition ...
+268.54:	Ant 4 is building a partition ...
+283.38:	Ant 5 is building a partition ...
+298.4:	Ant 6 is building a partition ...
+313.33:	Ant 7 is building a partition ...
+328.08:	Ant 8 is building a partition ...
+342.89:	Ant 9 is building a partition ...
+357.82:	UPDATING PHEROMONE TRAILS
+357.82:	Depositing pheromone
+357.82:	Depositing pheromone on Best Ant trail.
+357.82:	Starting  getBestAnt.
+401.64:	Ending  getBestAnt.
+401.64:	Starting  depositPheromoneInAntPath.
+401.65:	Ending  depositPheromoneInAntPath.
+401.65:	Performing evaporation on all edges
+401.65:	Evaporation ratio: 0.9
+401.65:	GETTING BEST SOLUTION FOUND
+401.65:	Starting  getBestAnt.
+401.65:	Ending  getBestAnt.
+401.65:	Best solution so far > Quality: 50.83311955792098
+401.65:	Current iteration: 2
+401.65:	CLEARING ANT SOLUTIONS
+401.65:	BUILDING ANT SOLUTIONS
+401.65:	Ant 0 is building a partition ...
+416.55:	Ant 1 is building a partition ...
+431.83:	Ant 2 is building a partition ...
+446.67:	Ant 3 is building a partition ...
+461.59:	Ant 4 is building a partition ...
+476.58:	Ant 5 is building a partition ...
+491.77:	Ant 6 is building a partition ...
+507.01:	Ant 7 is building a partition ...
+522.02:	Ant 8 is building a partition ...
+537.47:	Ant 9 is building a partition ...
+552.38:	UPDATING PHEROMONE TRAILS
+552.38:	Depositing pheromone
+552.38:	Depositing pheromone on Best Ant trail.
+552.38:	Starting  getBestAnt.
+597.77:	Ending  getBestAnt.
+597.77:	Starting  depositPheromoneInAntPath.
+597.77:	Ending  depositPheromoneInAntPath.
+597.77:	Performing evaporation on all edges
+597.77:	Evaporation ratio: 0.9
+597.77:	GETTING BEST SOLUTION FOUND
+597.77:	Starting  getBestAnt.
+597.77:	Ending  getBestAnt.
+597.77:	Best solution so far > Quality: 50.83311955792098
+597.77:	Current iteration: 3
+597.77:	CLEARING ANT SOLUTIONS
+597.77:	BUILDING ANT SOLUTIONS
+597.77:	Ant 0 is building a partition ...
+612.62:	Ant 1 is building a partition ...
+628.02:	Ant 2 is building a partition ...
+643.89:	Ant 3 is building a partition ...
+660.53:	Ant 4 is building a partition ...
+677.25:	Ant 5 is building a partition ...
+693.56:	Ant 6 is building a partition ...
+710.35:	Ant 7 is building a partition ...
+727.05:	Ant 8 is building a partition ...
+746.68:	Ant 9 is building a partition ...
+765.28:	UPDATING PHEROMONE TRAILS
+765.28:	Depositing pheromone
+765.28:	Depositing pheromone on Best Ant trail.
+765.28:	Starting  getBestAnt.
+816.28:	Ending  getBestAnt.
+816.28:	Starting  depositPheromoneInAntPath.
+816.28:	Ending  depositPheromoneInAntPath.
+816.28:	Performing evaporation on all edges
+816.28:	Evaporation ratio: 0.9
+816.28:	GETTING BEST SOLUTION FOUND
+816.28:	Starting  getBestAnt.
+816.28:	Ending  getBestAnt.
+816.28:	Best solution so far > Quality: 50.143939446465566
+816.28:	Current iteration: 4
+816.28:	CLEARING ANT SOLUTIONS
+816.28:	BUILDING ANT SOLUTIONS
+816.28:	Ant 0 is building a partition ...
+834.83:	Ant 1 is building a partition ...
+851.73:	Ant 2 is building a partition ...
+869.33:	Ant 3 is building a partition ...
+887.02:	Ant 4 is building a partition ...
+905.71:	Ant 5 is building a partition ...
+921.8:	Ant 6 is building a partition ...
+938.07:	Ant 7 is building a partition ...
+954.93:	Ant 8 is building a partition ...
+971.12:	Ant 9 is building a partition ...
+987.5:	UPDATING PHEROMONE TRAILS
+987.5:	Depositing pheromone
+987.5:	Depositing pheromone on Best Ant trail.
+987.5:	Starting  getBestAnt.
+1037.55:	Ending  getBestAnt.
+1037.55:	Starting  depositPheromoneInAntPath.
+1037.55:	Ending  depositPheromoneInAntPath.
+1037.55:	Performing evaporation on all edges
+1037.55:	Evaporation ratio: 0.9
+1037.55:	GETTING BEST SOLUTION FOUND
+1037.55:	Starting  getBestAnt.
+1037.55:	Ending  getBestAnt.
+1037.55:	Best solution so far > Quality: 49.54057446255768
+1037.55:	EXECUTION FINISHED
+1037.55:	Best partition quality: 49.54057446255768
+1037.55:	Finishing computation at: Thu Dec 12 17:07:47 COT 2013
+1037.55:	Duration (in seconds): 1037.549960184
+1037.55:	Generating segmented image
+1037.55:	Generating output image
+1037.57:	Resulting image stored in: C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/outputImg/19952transverse2_64_output.bmp
+1037.57:	Generating images per cluster
+1037.57:	Generating output image
+1037.6:	Resulting image stored in: C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/outputImg/0_19952transverse2_64_cluster.bmp
+1037.6:	Generating output image
+1037.63:	Resulting image stored in: C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/outputImg/1_19952transverse2_64_cluster.bmp
+1037.63:	Generating output image
+1037.66:	Resulting image stored in: C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/outputImg/2_19952transverse2_64_cluster.bmp
+1037.66:	Generating output image
+1037.68:	Resulting image stored in: C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/outputImg/3_19952transverse2_64_cluster.bmp
+
+
+EXPERIMENT EXECUTION REPORT
+===============================
+Input file: 19952transverse2_64.gif
+Evaporation parameter: 0.9
+Number of steps: 15
+Number of iterations: 5
+Pheromone importance: 1
+Heuristic importance: -1.0
+Extra weight: 0.6
+Parameter A for Cost Function: 5000
+Parameter B for Cost Function: 10
+Initial Pheromone Value: 1.401298464324817E-45
+Number of Clústers: 4
+
+CSF: BDP = 0.21889157354273633 BF = 2.9679199724042773 JSI = 0.24330675618967687 FPR = 0.2675872364247061 FNR = 0.7811084264572636
+Reference File ->C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/inputImg/csf_21130transverse1_64.gif
+Generated File ->C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/outputImg/1_19952transverse2_64_cluster.bmp
+
+
+Grey Matter: BDP = 0.23162824207492796 BF = 0.37612154563943057 JSI = 0.6870787440407694 FPR = 0.11889725069016374 FNR = 0.7683717579250721
+Reference File ->C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/inputImg/grey_20342transverse1_64.gif
+Generated File ->C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/outputImg/1_19952transverse2_64_cluster.bmp
+
+
+White Matter: BDP = 0.24679043423536814 BF = 0.21802881550427133 JSI = 0.812325220093216 FPR = 0.062136627906976744 FNR = 0.7532095657646318
+Reference File ->C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/inputImg/white_20358transverse1_64.gif
+Generated File ->C:/Users/V144615/workspace-sts-2.8.0.RELEASE/AnotherACOImageSegmentation/outputImg/0_19952transverse2_64_cluster.bmp
+
+
