@@ -1,6 +1,11 @@
 package pe.edu.pucp.acoseg;
 
-public class ProblemConfiguration {
+import isula.aco.ConfigurationProvider;
+import isula.aco.algorithms.acs.AcsConfigurationProvider;
+import isula.aco.algorithms.maxmin.MaxMinConfigurationProvider;
+
+public class ProblemConfiguration implements ConfigurationProvider,
+    MaxMinConfigurationProvider, AcsConfigurationProvider {
   // TODO(cgavidia) This need huge refactoring
 
   private static final ProblemConfiguration INSTANCE = new ProblemConfiguration();
@@ -246,6 +251,27 @@ public class ProblemConfiguration {
 
   public static ProblemConfiguration getInstance() {
     return INSTANCE;
+  }
+
+  @Override
+  public double getEvaporationRatio() {
+    return evaporation;
+  }
+
+  @Override
+  public int getNumberOfIterations() {
+    return maxIterations;
+  }
+
+  @Override
+  public double getInitialPheromoneValue() {
+    // I don't think this is used for this implementation.
+    return minimumPheromoneValue;
+  }
+
+  @Override
+  public double getPheromoneImportance() {
+    return PHEROMONE_IMPORTANCE;
   }
 
 }

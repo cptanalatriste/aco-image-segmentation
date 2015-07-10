@@ -3,136 +3,124 @@ package pe.edu.pucp.acoseg.image;
 import java.util.ArrayList;
 import java.util.List;
 
+import pe.edu.pucp.acosthres.image.ImagePixel;
+
 public class ClusteredPixel {
 
-	private int xCoordinate = -1;
-	private int yCoordinate = -1;
-	private int greyScaleValue = -1;
-	private int cluster = -1;
+  private ImagePixel imagePixel;
+  private int cluster = ImagePixel.INITIAL_VALUE;
 
-	public ClusteredPixel(int xCoordinate, int yCoordinate, int[][] imageGraph,
-			int cluster) {
-		super();
-		this.xCoordinate = xCoordinate;
-		this.yCoordinate = yCoordinate;
-		this.cluster = cluster;
-		this.greyScaleValue = imageGraph[xCoordinate][yCoordinate];
-	}
+  /**
+   * Creates a new pixel and associates it to a Cluster.
+   * 
+   * @param coordinateForX
+   *          X coordinate.
+   * @param coordinateForY
+   *          Y coordinate.
+   * @param imageGraph
+   *          Graph representing the image.
+   * @param cluster
+   *          Assigned cluster.
+   */
+  public ClusteredPixel(int coordinateForX, int coordinateForY,
+      double[][] imageGraph, int cluster) {
+    super();
+    this.imagePixel = new ImagePixel(coordinateForX, coordinateForY, imageGraph);
+    this.cluster = cluster;
+  }
 
-	public int getxCoordinate() {
-		return xCoordinate;
-	}
+  public int getxCoordinate() {
+    return imagePixel.getxCoordinate();
+  }
 
-	public void setxCoordinate(int xCoordinate) {
-		this.xCoordinate = xCoordinate;
-	}
+  public void setxCoordinate(int coordinateForX) {
+    this.imagePixel.setxCoordinate(coordinateForX);
+  }
 
-	public int getyCoordinate() {
-		return yCoordinate;
-	}
+  public int getyCoordinate() {
+    return imagePixel.getyCoordinate();
+  }
 
-	public void setyCoordinate(int yCoordinate) {
-		this.yCoordinate = yCoordinate;
-	}
+  public void setyCoordinate(int coordinateForY) {
+    this.imagePixel.setyCoordinate(coordinateForY);
+  }
 
-	public int getGreyScaleValue() {
-		return greyScaleValue;
-	}
+  public int getGreyScaleValue() {
+    return imagePixel.getGreyScaleValue();
+  }
 
-	public void setGreyScaleValue(int greyScaleValue) {
-		this.greyScaleValue = greyScaleValue;
-	}
+  public void setGreyScaleValue(int greyScaleValue) {
+    this.imagePixel.setGreyScaleValue(greyScaleValue);
+  }
 
-	public int getCluster() {
-		return cluster;
-	}
+  public int getCluster() {
+    return cluster;
+  }
 
-	public void setCluster(int cluster) {
-		this.cluster = cluster;
-	}
+  public void setCluster(int cluster) {
+    this.cluster = cluster;
+  }
 
-	public String toString() {
-		return "Pixel (" + xCoordinate + ", " + yCoordinate + ") to Cluster: "
-				+ cluster;
-	}
+  public String toString() {
+    return "Pixel " + this.imagePixel.toString() + " to Cluster: " + cluster;
+  }
 
-	// TODO(cgavidia): There must be a more elegant way to do this
-	public List<ClusteredPixel> getNeighbourhood(ClusteredPixel[] partition,
-			int[][] imageGraph) {
+  /**
+   * Return a neighborhood in reference to a partition.
+   * 
+   * @param partition
+   *          Partition.
+   * @param imageGraph
+   *          Graph of the image.
+   * @return Neighbours of the current pixel.
+   */
+  public List<ClusteredPixel> getNeighbourhood(ClusteredPixel[] partition,
+      double[][] imageGraph) {
 
-		ArrayList<ClusteredPixel> neighbours = new ArrayList<ClusteredPixel>();
-		if (yCoordinate - 1 >= 0) {
-			// TODO(cgavidia): We can have a Plain Pixel class here
-			ClusteredPixel posiblePixel = new ClusteredPixel(xCoordinate,
-					yCoordinate - 1, imageGraph, -1);
-			verifyPartitionAndAdd(partition, neighbours, posiblePixel,
-					imageGraph);
-		}
+    ArrayList<ClusteredPixel> neighbours = new ArrayList<ClusteredPixel>();
+    List<ImagePixel> pixelNeighbours = this.imagePixel
+        .getNeighbourhood(imageGraph);
 
-		if (yCoordinate + 1 < imageGraph[0].length) {
-			ClusteredPixel posiblePixel = new ClusteredPixel(xCoordinate,
-					yCoordinate + 1, imageGraph, -1);
-			verifyPartitionAndAdd(partition, neighbours, posiblePixel,
-					imageGraph);
+    for (ImagePixel neighbour : pixelNeighbours) {
+      ClusteredPixel posiblePixel = new ClusteredPixel(
+          neighbour.getxCoordinate(), neighbour.getyCoordinate(), imageGraph,
+          ImagePixel.INITIAL_VALUE);
+      verifyPartitionAndAdd(partition, neighbours, posiblePixel, imageGraph);
 
-		}
+    }
 
-		if (xCoordinate - 1 >= 0) {
-			ClusteredPixel posiblePixel = new ClusteredPixel(xCoordinate - 1,
-					yCoordinate, imageGraph, -1);
-			verifyPartitionAndAdd(partition, neighbours, posiblePixel,
-					imageGraph);
-		}
+    return neighbours;
+  }
 
-		if (xCoordinate + 1 < imageGraph.length) {
-			ClusteredPixel posiblePixel = new ClusteredPixel(xCoordinate + 1,
-					yCoordinate, imageGraph, -1);
-			verifyPartitionAndAdd(partition, neighbours, posiblePixel,
-					imageGraph);
-		}
+  private void verifyPartitionAndAdd(ClusteredPixel[] partition,
+      ArrayList<ClusteredPixel> neighbours, ClusteredPixel posiblePixel,
+      double[][] imageGraph) {
+    ClusteredPixel pixelInPartition = partition[posiblePixel.getxCoordinate()
+        * imageGraph[0].length + posiblePixel.getyCoordinate()];
+    if (pixelInPartition != null) {
+      posiblePixel.setCluster(pixelInPartition.getCluster());
+      neighbours.add(posiblePixel);
+    }
+  }
 
-		if (xCoordinate - 1 >= 0 && yCoordinate - 1 >= 0) {
-			ClusteredPixel posiblePixel = new ClusteredPixel(xCoordinate - 1,
-					yCoordinate - 1, imageGraph, -1);
-			verifyPartitionAndAdd(partition, neighbours, posiblePixel,
-					imageGraph);
-		}
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
 
-		if (xCoordinate + 1 < imageGraph.length && yCoordinate - 1 >= 0) {
-			ClusteredPixel posiblePixel = new ClusteredPixel(xCoordinate + 1,
-					yCoordinate - 1, imageGraph, -1);
-			verifyPartitionAndAdd(partition, neighbours, posiblePixel,
-					imageGraph);
-		}
+    ClusteredPixel visitedPixel = (ClusteredPixel) obj;
 
-		if (xCoordinate - 1 >= 0 && yCoordinate + 1 < imageGraph[0].length) {
-			ClusteredPixel posiblePixel = new ClusteredPixel(xCoordinate - 1,
-					yCoordinate + 1, imageGraph, -1);
-			verifyPartitionAndAdd(partition, neighbours, posiblePixel,
-					imageGraph);
-		}
+    if (visitedPixel.getxCoordinate() == this.getxCoordinate()
+        && visitedPixel.getyCoordinate() == this.getyCoordinate()
+        && visitedPixel.getGreyScaleValue() == this.getGreyScaleValue()) {
+      return true;
+    }
 
-		if (xCoordinate + 1 < imageGraph.length
-				&& yCoordinate + 1 < imageGraph[0].length) {
-			ClusteredPixel posiblePixel = new ClusteredPixel(xCoordinate + 1,
-					yCoordinate + 1, imageGraph, -1);
-			verifyPartitionAndAdd(partition, neighbours, posiblePixel,
-					imageGraph);
-		}
+    return false;
+  }
 
-		return neighbours;
-	}
-
-	private void verifyPartitionAndAdd(ClusteredPixel[] partition,
-			ArrayList<ClusteredPixel> neighbours, ClusteredPixel posiblePixel,
-			int[][] imageGraph) {
-		ClusteredPixel pixelInPartition = partition[posiblePixel
-				.getxCoordinate()
-				* imageGraph[0].length
-				+ posiblePixel.getyCoordinate()];
-		if (pixelInPartition != null) {
-			posiblePixel.setCluster(pixelInPartition.getCluster());
-			neighbours.add(posiblePixel);
-		}
-	}
 }
