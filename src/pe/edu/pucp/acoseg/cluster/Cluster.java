@@ -1,6 +1,6 @@
 package pe.edu.pucp.acoseg.cluster;
 
-import pe.edu.pucp.acoseg.image.ClusteredPixel;
+import isula.image.util.ClusteredPixel;
 
 import java.util.ArrayList;
 import java.util.List;

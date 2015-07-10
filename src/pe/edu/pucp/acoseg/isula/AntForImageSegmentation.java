@@ -3,15 +3,16 @@ package pe.edu.pucp.acoseg.isula;
 import isula.aco.Ant;
 import isula.aco.ConfigurationProvider;
 import isula.aco.Environment;
+import isula.image.util.ClusteredPixel;
+
+import pe.edu.pucp.acoseg.ProblemConfiguration;
+import pe.edu.pucp.acoseg.cluster.Cluster;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import pe.edu.pucp.acoseg.ProblemConfiguration;
-import pe.edu.pucp.acoseg.cluster.Cluster;
-import pe.edu.pucp.acoseg.image.ClusteredPixel;
 
 public class AntForImageSegmentation extends Ant<ClusteredPixel> {
 
@@ -63,7 +64,8 @@ public class AntForImageSegmentation extends Ant<ClusteredPixel> {
       ConfigurationProvider configurationProvider) {
     double[][] problemGraph = environment.getProblemGraph();
 
-    if (problemGraph[currentXPosition][currentYPosition] != ProblemConfiguration.ABSENT_PIXEL_FLAG) {
+    if (problemGraph[currentXPosition][currentYPosition] 
+        != ProblemConfiguration.ABSENT_PIXEL_FLAG) {
       super.selectNextNode(environment, configurationProvider);
     } else {
       this.visitNode(new ClusteredPixel(currentXPosition, currentYPosition,

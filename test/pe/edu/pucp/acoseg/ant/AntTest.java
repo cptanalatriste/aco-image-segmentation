@@ -2,14 +2,13 @@ package pe.edu.pucp.acoseg.ant;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import isula.image.util.ClusteredPixel;
 
 import java.util.List;
 
 import org.junit.Test;
 
 import pe.edu.pucp.acoseg.ProblemConfiguration;
-import pe.edu.pucp.acoseg.image.ClusteredPixel;
-import pe.edu.pucp.acoseg.image.PosibleAssignment;
 import pe.edu.pucp.acoseg.isula.AntForImageSegmentation;
 import pe.edu.pucp.acoseg.test.TestDataGenerator;
 

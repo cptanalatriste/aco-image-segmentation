@@ -3,7 +3,7 @@ package pe.edu.pucp.acoseg.isula;
 import isula.aco.Ant;
 import isula.aco.AntColony;
 import isula.aco.Environment;
-import pe.edu.pucp.acoseg.image.ClusteredPixel;
+import isula.image.util.ClusteredPixel;
 
 //TODO(cgavidia): If we made the Ant class also a parameter?
 public class ImageSegmentationAntColony extends AntColony<ClusteredPixel> {

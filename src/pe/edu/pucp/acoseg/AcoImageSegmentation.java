@@ -5,21 +5,25 @@ import isula.aco.Ant;
 import isula.aco.ConfigurationProvider;
 import isula.aco.Environment;
 import isula.aco.algorithms.maxmin.StartPheromoneMatrixForMaxMin;
-
-import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-
-import pe.edu.pucp.acoseg.exper.TestSuite;
-import pe.edu.pucp.acoseg.image.ClusteredPixel;
-import pe.edu.pucp.acoseg.image.ImageFileHelper;
+import isula.image.util.ClusteredPixel;
+import isula.image.util.ImageFileHelper;
+import pe.edu.pucp.acoseg.exper.TestSuiteForImageSegmentation;
 import pe.edu.pucp.acoseg.isula.EnvironmentForImageSegmentation;
 import pe.edu.pucp.acoseg.isula.ImageSegmentationAntColony;
 import pe.edu.pucp.acoseg.isula.ImageSegmentationNodeSelection;
 import pe.edu.pucp.acoseg.isula.ImageSegmentationUpdatePheromoneMatrix;
 import pe.edu.pucp.acothres.AcoImageThresholding;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Logger;
+
+
+
 public class AcoImageSegmentation {
+
+  private static Logger logger = Logger.getLogger(AcoImageSegmentation.class
+      .getName());
 
   private AcoProblemSolver<ClusteredPixel> problemSolver;
 
@@ -44,6 +48,8 @@ public class AcoImageSegmentation {
         .addDaemonAction(new StartPheromoneMatrixForMaxMin<ClusteredPixel>());
     problemSolver.addDaemonAction(new ImageSegmentationUpdatePheromoneMatrix());
 
+    // TODO(cgavidia): We should implement a mechanism to add policies at Colony
+    // Level.
     List<Ant<ClusteredPixel>> hive = antColony.getHive();
     for (Ant<ClusteredPixel> ant : hive) {
       ant.addPolicy(new ImageSegmentationNodeSelection());
@@ -56,16 +62,17 @@ public class AcoImageSegmentation {
   }
 
   /**
+   * Start the ACO-based segmentation process.
+   * 
    * @param args
+   *          Program arguments.
    */
   public static void main(String[] args) {
-    System.out.println("ACO FOR IMAGE SEGMENTATION");
-    System.out.println("=============================");
+    logger.info("ACO FOR IMAGE SEGMENTATION");
 
     try {
-
       performSegmentation();
-      new TestSuite().executeReport();
+      new TestSuiteForImageSegmentation().executeReport();
 
     } catch (Exception e) {
       e.printStackTrace();
@@ -73,21 +80,29 @@ public class AcoImageSegmentation {
 
   }
 
+  /**
+   * Launches the segmentation process.
+   * 
+   * @return An instance of this class.
+   * @throws IOException
+   *           In case of reading/writing problems.
+   * @throws Exception
+   *           Application-level exceptions.
+   */
   public static AcoImageSegmentation performSegmentation() throws IOException,
       Exception {
     String imageFile = ProblemConfiguration.INPUT_DIRECTORY
         + ProblemConfiguration.IMAGE_FILE;
-    System.out.println("Data file: " + imageFile);
+    logger.info("Data file: " + imageFile);
 
     double[][] imageGraph = returnImageAsArray(imageFile);
 
     ClusteredPixel[] resultingPartition = null;
     AcoImageSegmentation acoImageSegmentation = null;
     acoImageSegmentation = new AcoImageSegmentation();
-    System.out.println("Starting computation at: " + new Date());
     resultingPartition = acoImageSegmentation.solveProblem(imageGraph);
 
-    System.out.println("Generating segmented image");
+    logger.info("Generating segmented image");
     int[][] segmentedImageAsMatrix = generateSegmentedImage(resultingPartition,
         (EnvironmentForImageSegmentation) acoImageSegmentation.problemSolver
             .getEnvironment());
@@ -95,7 +110,7 @@ public class AcoImageSegmentation {
         ProblemConfiguration.getInstance().getOutputDirectory()
             + ProblemConfiguration.OUTPUT_IMAGE_FILE);
 
-    System.out.println("Generating images per cluster");
+    logger.info("Generating images per cluster");
     for (int i = 0; i < ProblemConfiguration.getInstance()
         .getNumberOfClusters(); i++) {
       int[][] clusterImage = generateSegmentedImagePerCluster(i,
@@ -115,14 +130,14 @@ public class AcoImageSegmentation {
       throws IOException, Exception {
     int[][] imageGraphAsInt = ImageFileHelper.getImageArrayFromFile(imageFile);
 
-    System.out.println("Starting background filtering process");
+    logger.info("Starting background filtering process");
 
     int[][] backgroundFilterMask = AcoImageThresholding
         .getSegmentedImageAsArray(imageFile, true);
 
     imageGraphAsInt = ImageFileHelper.applyFilter(imageGraphAsInt,
         backgroundFilterMask);
-    System.out.println("Generating filtered image");
+    logger.info("Generating filtered image");
     ImageFileHelper.generateImageFromArray(imageGraphAsInt,
         ProblemConfiguration.getInstance().getOutputDirectory()
             + ProblemConfiguration.FILTERED_IMAGE_FILE);
@@ -159,7 +174,7 @@ public class AcoImageSegmentation {
     return resultMatrix;
   }
 
-  public static int[][] generateSegmentedImage(
+  static int[][] generateSegmentedImage(
       ClusteredPixel[] resultingPartition,
       EnvironmentForImageSegmentation environment) {
     int[][] resultMatrix = new int[environment.getProblemGraph().length][environment
@@ -169,7 +184,8 @@ public class AcoImageSegmentation {
       int cluster = clusteredPixel.getCluster();
       if (cluster != ProblemConfiguration.ABSENT_PIXEL_CLUSTER) {
         int numberOfClusters = environment.getNumberOfClusters();
-        int greyScaleValue = (int) ((cluster + 1.0) / numberOfClusters * ProblemConfiguration.GRAYSCALE_MAX_RANGE);
+        int greyScaleValue = (int) ((cluster + 1.0) 
+            / numberOfClusters * ProblemConfiguration.GRAYSCALE_MAX_RANGE);
         resultMatrix[clusteredPixel.getxCoordinate()][clusteredPixel
             .getyCoordinate()] = greyScaleValue;
       } else {

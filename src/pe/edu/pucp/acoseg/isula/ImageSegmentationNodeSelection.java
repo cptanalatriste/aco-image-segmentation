@@ -3,11 +3,10 @@ package pe.edu.pucp.acoseg.isula;
 import isula.aco.ConfigurationProvider;
 import isula.aco.Environment;
 import isula.aco.algorithms.acs.PseudoRandomNodeSelection;
+import isula.image.util.ClusteredPixel;
 
 import java.util.List;
 import java.util.Random;
-
-import pe.edu.pucp.acoseg.image.ClusteredPixel;
 
 public class ImageSegmentationNodeSelection extends
     PseudoRandomNodeSelection<ClusteredPixel> {

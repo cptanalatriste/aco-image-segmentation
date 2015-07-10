@@ -1,18 +1,25 @@
 package pe.edu.pucp.acoseg.exper;
 
+import pe.edu.pucp.acoseg.AcoImageSegmentation;
+import pe.edu.pucp.acoseg.AcoParameter;
+import pe.edu.pucp.acoseg.ProblemConfiguration;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-
-import pe.edu.pucp.acoseg.AcoImageSegmentation;
-import pe.edu.pucp.acoseg.ACOParameter;
-import pe.edu.pucp.acoseg.ProblemConfiguration;
+import java.util.logging.Logger;
 
 public class ExperimentDriver {
+  
+  private static Logger logger = Logger.getLogger(ExperimentDriver.class.getName());
 
+  /**
+   * Starts the execution of parameter experimentation.
+   * 
+   * @param args Program arguments.
+   */
   public static void main(String[] args) {
-    System.out.println("ACO FOR IMAGE SEGMENTATION");
-    System.out.println("=============================");
+    logger.info("ACO FOR IMAGE SEGMENTATION");
 
     try {
       // executeExperiment(ACOParameter.BEST_CHOICE_PROBABILITY, 1, -0.1,
@@ -25,20 +32,29 @@ public class ExperimentDriver {
       // 1.0 / 30 + 0.005, -0.005, 5);
       // executeExperiment(ACOParameter.HEURISTIC_IMPORTANCE, 0, -0.5, 5);
 
-      executeExperiment(ACOParameter.NUMBER_OF_CLUSTERS, 14, -2, 5);
+      executeExperiment(AcoParameter.NUMBER_OF_CLUSTERS, 14, -2, 5);
     } catch (Exception e) {
       e.printStackTrace();
     }
-
   }
 
-  public static void executeExperiment(ACOParameter acoParameter,
+  /**
+   * Performs experimentation on an specific parameter.
+   * 
+   * @param acoParameter Parameter to modify in the experiment.
+   * @param seedValue Initial value.
+   * @param step Quantity to increase.
+   * @param runs Number of increases.
+   * @throws IOException In case of file reading issues.
+   * @throws Exception Other errors.
+   */
+  public static void executeExperiment(AcoParameter acoParameter,
       double seedValue, double step, int runs) throws IOException, Exception {
     ProblemConfiguration configuration = ProblemConfiguration.getInstance();
     PrintWriter printWriter = new PrintWriter(acoParameter.getName()
         + "Experiments.txt");
     String currentOutputDirectory = configuration.getOutputDirectory();
-    printWriter.println("INITIAL SETTINGS");
+    logger.info("INITIAL SETTINGS");
     printWriter.println(configuration.currentConfigurationAsString());
     printWriter.println("\n***Experimental Data****\n");
     configuration.setParameter(acoParameter, seedValue);
@@ -56,16 +72,16 @@ public class ExperimentDriver {
 
       AcoImageSegmentation acoImageSegmentation = AcoImageSegmentation
           .performSegmentation();
-      TestSuite testSuite = new TestSuite();
+      TestSuiteForImageSegmentation testSuite = new TestSuiteForImageSegmentation();
       testSuite.executeReport();
       String reportLine = " ****" + acoParameter.getName() + ": "
           + configuration.getParameter(acoParameter) + ", Execution time:"
-          + ", White JCI: " + testSuite.getJCIForWhiteMatter() + ", Grey JCI: "
-          + testSuite.getJCIForGreyMatter() + ", CLF JCI: "
-          + testSuite.getJCIForCSF() + ", Partition Quality: "
+          + ", White JCI: " + testSuite.getJciForWhiteMatter() + ", Grey JCI: "
+          + testSuite.getJciForGreyMatter() + ", CLF JCI: "
+          + testSuite.getJciForCsf() + ", Partition Quality: "
           + acoImageSegmentation.getProblemSolver().getBestSolutionAsString()
           + "****";
-      System.out.print(reportLine);
+      logger.info(reportLine);
       printWriter.println(reportLine);
     }
     printWriter.close();

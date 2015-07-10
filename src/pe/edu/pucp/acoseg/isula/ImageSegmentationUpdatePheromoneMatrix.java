@@ -4,8 +4,8 @@ import isula.aco.Ant;
 import isula.aco.Environment;
 import isula.aco.algorithms.maxmin.MaxMinConfigurationProvider;
 import isula.aco.algorithms.maxmin.UpdatePheromoneMatrixForMaxMin;
+import isula.image.util.ClusteredPixel;
 import pe.edu.pucp.acoseg.ProblemConfiguration;
-import pe.edu.pucp.acoseg.image.ClusteredPixel;
 
 public class ImageSegmentationUpdatePheromoneMatrix extends
     UpdatePheromoneMatrixForMaxMin<ClusteredPixel> {

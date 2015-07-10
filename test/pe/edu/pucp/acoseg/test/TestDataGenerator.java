@@ -1,9 +1,10 @@
 package pe.edu.pucp.acoseg.test;
 
+import isula.image.util.ClusteredPixel;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import pe.edu.pucp.acoseg.image.ClusteredPixel;
 import pe.edu.pucp.acoseg.isula.AntForImageSegmentation;
 import pe.edu.pucp.acoseg.isula.EnvironmentForImageSegmentation;
 import pe.edu.pucp.acoseg.isula.ImageSegmentationAntColony;
