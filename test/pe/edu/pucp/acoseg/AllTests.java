@@ -8,8 +8,8 @@ import pe.edu.pucp.acoseg.ant.AntColonyTest;
 import pe.edu.pucp.acoseg.ant.AntTest;
 
 @RunWith(Suite.class)
-@SuiteClasses({ ACOImageSegmentationTest.class, AntColonyTest.class,
-		AntTest.class })
+@SuiteClasses({ AcoImageSegmentationTest.class, AntColonyTest.class,
+    AntTest.class })
 public class AllTests {
 
 }

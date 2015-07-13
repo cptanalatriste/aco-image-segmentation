@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 public class AntForImageSegmentation extends Ant<ClusteredPixel> {
 
   private int currentXPosition = 0;
@@ -103,7 +102,14 @@ public class AntForImageSegmentation extends Ant<ClusteredPixel> {
         * contiguityMeasure;
   }
 
-  private double getContiguityMeasure(ClusteredPixel solutionComponent,
+  /**
+   * Calculates the contiguity measure for a component of the solution.
+   * 
+   * @param solutionComponent Component to evaluate.
+   * @param problemGraph Graph representing the image.
+   * @return Contiguity measure value.
+   */
+  public double getContiguityMeasure(ClusteredPixel solutionComponent,
       double[][] problemGraph) {
     // TODO(cgavidia): Contiguity measure taken from: A contiguity-enhanced
     // k-means clustering algorithm for unsupervised multispectral image
@@ -187,6 +193,14 @@ public class AntForImageSegmentation extends Ant<ClusteredPixel> {
       }
     }
     return partitionQuality;
+  }
+
+  public void setCurrentXPosition(int currentXPosition) {
+    this.currentXPosition = currentXPosition;
+  }
+
+  public void setCurrentYPosition(int currentYPosition) {
+    this.currentYPosition = currentYPosition;
   }
 
 }

@@ -1,6 +1,7 @@
 package pe.edu.pucp.acoseg;
 
 import static org.junit.Assert.assertEquals;
+
 import isula.aco.exception.InvalidInputException;
 
 import org.junit.Test;
@@ -8,7 +9,9 @@ import org.junit.Test;
 import pe.edu.pucp.acoseg.isula.EnvironmentForImageSegmentation;
 import pe.edu.pucp.acoseg.test.TestDataGenerator;
 
-public class ACOImageSegmentationTest {
+
+
+public class AcoImageSegmentationTest {
 
   @Test
   public void testGenerateSegmentedImage() throws InvalidInputException {
@@ -20,7 +23,8 @@ public class ACOImageSegmentationTest {
     for (int i = 0; i < TestDataGenerator.getDummyImageMatrix().length; i++) {
       for (int j = 0; j < TestDataGenerator.getDummyImageMatrix()[0].length; j++) {
         assertEquals("Error in pixel (" + i + ", " + j + ")",
-            TestDataGenerator.getDummyImageMatrix()[i][j], segmentedImage[i][j]);
+            (int) TestDataGenerator.getDummyImageMatrix()[i][j],
+            (int) segmentedImage[i][j]);
       }
     }
   }

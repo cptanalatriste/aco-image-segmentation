@@ -1,12 +1,12 @@
 package pe.edu.pucp.acoseg;
 
 import isula.aco.AcoProblemSolver;
-import isula.aco.Ant;
 import isula.aco.ConfigurationProvider;
 import isula.aco.Environment;
 import isula.aco.algorithms.maxmin.StartPheromoneMatrixForMaxMin;
 import isula.image.util.ClusteredPixel;
 import isula.image.util.ImageFileHelper;
+
 import pe.edu.pucp.acoseg.exper.TestSuiteForImageSegmentation;
 import pe.edu.pucp.acoseg.isula.EnvironmentForImageSegmentation;
 import pe.edu.pucp.acoseg.isula.ImageSegmentationAntColony;
@@ -15,10 +15,7 @@ import pe.edu.pucp.acoseg.isula.ImageSegmentationUpdatePheromoneMatrix;
 import pe.edu.pucp.acothres.AcoImageThresholding;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.logging.Logger;
-
-
 
 public class AcoImageSegmentation {
 
@@ -30,7 +27,6 @@ public class AcoImageSegmentation {
   private ClusteredPixel[] solveProblem(double[][] imageGraph) throws Exception {
     ConfigurationProvider configurationProvider = ProblemConfiguration
         .getInstance();
-    problemSolver = new AcoProblemSolver<ClusteredPixel>();
     EnvironmentForImageSegmentation environment = new EnvironmentForImageSegmentation(
         imageGraph, ProblemConfiguration.getInstance().getNumberOfClusters());
 
@@ -40,20 +36,17 @@ public class AcoImageSegmentation {
         configurationProvider.getNumberOfAnts(),
         environment.getNumberOfClusters());
     antColony.buildColony(environment);
+
+    problemSolver = new AcoProblemSolver<ClusteredPixel>();
+
     problemSolver.setConfigurationProvider(configurationProvider);
     problemSolver.setEnvironment(environment);
     problemSolver.setAntColony(antColony);
 
-    problemSolver
-        .addDaemonAction(new StartPheromoneMatrixForMaxMin<ClusteredPixel>());
-    problemSolver.addDaemonAction(new ImageSegmentationUpdatePheromoneMatrix());
-
-    // TODO(cgavidia): We should implement a mechanism to add policies at Colony
-    // Level.
-    List<Ant<ClusteredPixel>> hive = antColony.getHive();
-    for (Ant<ClusteredPixel> ant : hive) {
-      ant.addPolicy(new ImageSegmentationNodeSelection());
-    }
+    problemSolver.addDaemonActions(
+        new StartPheromoneMatrixForMaxMin<ClusteredPixel>(),
+        new ImageSegmentationUpdatePheromoneMatrix());
+    antColony.addAntPolicies(new ImageSegmentationNodeSelection());
 
     problemSolver.solveProblem();
     ClusteredPixel[] bestPartition = problemSolver.getBestSolution();
@@ -174,8 +167,7 @@ public class AcoImageSegmentation {
     return resultMatrix;
   }
 
-  static int[][] generateSegmentedImage(
-      ClusteredPixel[] resultingPartition,
+  static int[][] generateSegmentedImage(ClusteredPixel[] resultingPartition,
       EnvironmentForImageSegmentation environment) {
     int[][] resultMatrix = new int[environment.getProblemGraph().length][environment
         .getProblemGraph()[0].length];

@@ -31,14 +31,6 @@ public class ImageSegmentationUpdatePheromoneMatrix extends
             .getCluster()] * ProblemConfiguration.EXTRA_WEIGHT + contribution;
       }
     } catch (Exception e) {
-      // TODO Auto-generated catch block
-      System.out.println(problemGraph.length);
-      System.out.println(problemGraph[0].length);
-      System.out.println(solutionComponent);
-      System.out.println(((EnvironmentForImageSegmentation) environment)
-          .getNumberOfPixels());
-      System.out.println(bestAnt.getSolutionAsString());
-
       e.printStackTrace();
     }
 
