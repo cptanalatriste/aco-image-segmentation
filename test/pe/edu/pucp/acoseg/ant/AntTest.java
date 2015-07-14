@@ -21,49 +21,12 @@ import java.util.Map.Entry;
 
 public class AntTest {
 
-  // TODO(cgavidia): This comments are temporarl, until stabilitization
-  @Test
-  public void testGetContiguityMeasure() throws InvalidInputException {
-
-    ClusteredPixel pixelToEvaluate = new ClusteredPixel(1, 1,
-        TestDataGenerator.getDummyImageMatrix(), 0);
-    double expectedContiguity = 2.0 / 4.0;
-    AntForImageSegmentation antForTest = TestDataGenerator
-        .getAntWithPartialPartition();
-    assertEquals(
-        expectedContiguity,
-        antForTest.getContiguityMeasure(pixelToEvaluate,
-            TestDataGenerator.getDummyImageMatrix()), 0.001);
-
-    pixelToEvaluate = new ClusteredPixel(1, 1,
-        TestDataGenerator.getDummyImageMatrix(), 1);
-    expectedContiguity = 1.0 / 4.0;
-    assertEquals(
-        expectedContiguity,
-        antForTest.getContiguityMeasure(pixelToEvaluate,
-            TestDataGenerator.getDummyImageMatrix()), 0.001);
-  }
-
   @Test
   public void testGetClusterMeanValue() throws InvalidInputException {
     AntForImageSegmentation antForTest = TestDataGenerator
         .getAntWithPartialPartition();
     assertEquals(85.0, antForTest.getClusterMeanValue(0), 0.001);
     assertEquals(255.0, antForTest.getClusterMeanValue(2), 0.001);
-  }
-
-  @Test
-  public void testGetHeuristicValue() throws InvalidInputException {
-    AntForImageSegmentation antForTest = TestDataGenerator
-        .getAntWithPartialPartition();
-    ClusteredPixel pixelToEvaluate = new ClusteredPixel(1, 1,
-        TestDataGenerator.getDummyImageMatrix(), 0);
-    double expectedHeuristicValue = 85.0 + ProblemConfiguration.getInstance()
-        .getContiguityMeassureParam() * 0.5;
-    assertEquals(
-        expectedHeuristicValue,
-        antForTest.getHeuristicValue(pixelToEvaluate, -1,
-            TestDataGenerator.getDummyEnvironment()), 0.001);
   }
 
   @Test
