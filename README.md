@@ -34,3 +34,8 @@ The Ant Colony algorithm used to extract segments of the image is based on Max-M
     problemSolver.solveProblem();
     ClusteredPixel[] bestPartition = problemSolver.getBestSolution();
 ```
+The implemented process has the following characteristics:
+* The components of the solution are Clustered Pixels, that is, each pixel of the image will be assigned to one of three clusters.
+* The Ant class avaible in Isula was extended to support this image clustering class. The ants for this problems have memory of the current position in the image, as well as a Map for Cluster storage. Since the calculation of the Solution Quality is expensive, it was also added as an instance variable.
+* This Ants are built so they only consider Cerebrum pixels. That information was provided but the previous binary thresholding algorithm.
+* The Max-Min Ant System policies available in Isula were reused with minor customization. This includes pheromone update and node selection.
