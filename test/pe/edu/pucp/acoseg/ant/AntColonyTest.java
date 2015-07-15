@@ -34,7 +34,8 @@ public class AntColonyTest {
   public void testRecordBestSolution() throws InvalidInputException {
     EnvironmentForImageSegmentation dummyEnvironment = TestDataGenerator
         .getDummyEnvironment();
-    AcoProblemSolver<ClusteredPixel> dummySolver = new AcoProblemSolver<ClusteredPixel>();
+    AcoProblemSolver<ClusteredPixel, EnvironmentForImageSegmentation> dummySolver 
+        = new AcoProblemSolver<ClusteredPixel, EnvironmentForImageSegmentation>();
     ImageSegmentationAntColony antColony = TestDataGenerator
         .getDummyAntColony();
 

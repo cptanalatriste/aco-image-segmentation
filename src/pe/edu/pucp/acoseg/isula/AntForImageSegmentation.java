@@ -2,7 +2,6 @@ package pe.edu.pucp.acoseg.isula;
 
 import isula.aco.Ant;
 import isula.aco.ConfigurationProvider;
-import isula.aco.Environment;
 import isula.image.util.ClusteredPixel;
 
 import pe.edu.pucp.acoseg.ProblemConfiguration;
@@ -13,7 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AntForImageSegmentation extends Ant<ClusteredPixel> {
+public class AntForImageSegmentation extends
+    Ant<ClusteredPixel, EnvironmentForImageSegmentation> {
 
   private int currentXPosition = 0;
   private int currentYPosition = 0;
@@ -59,7 +59,7 @@ public class AntForImageSegmentation extends Ant<ClusteredPixel> {
   }
 
   @Override
-  public void selectNextNode(Environment environment,
+  public void selectNextNode(EnvironmentForImageSegmentation environment,
       ConfigurationProvider configurationProvider) {
     double[][] problemGraph = environment.getProblemGraph();
 
@@ -79,16 +79,13 @@ public class AntForImageSegmentation extends Ant<ClusteredPixel> {
   }
 
   @Override
-  public boolean isSolutionReady(Environment environment) {
-    // TODO(cgavidia): This can be a parametrized class
-    EnvironmentForImageSegmentation env = (EnvironmentForImageSegmentation) environment;
-
-    return getCurrentIndex() == env.getNumberOfPixels();
+  public boolean isSolutionReady(EnvironmentForImageSegmentation environment) {
+    return getCurrentIndex() == environment.getNumberOfPixels();
   }
 
   @Override
   public Double getHeuristicValue(ClusteredPixel solutionComponent,
-      Integer positionInSolution, Environment environment) {
+      Integer positionInSolution, EnvironmentForImageSegmentation environment) {
 
     double[][] problemGraph = environment.getProblemGraph();
 
@@ -105,8 +102,10 @@ public class AntForImageSegmentation extends Ant<ClusteredPixel> {
   /**
    * Calculates the contiguity measure for a component of the solution.
    * 
-   * @param solutionComponent Component to evaluate.
-   * @param problemGraph Graph representing the image.
+   * @param solutionComponent
+   *          Component to evaluate.
+   * @param problemGraph
+   *          Graph representing the image.
    * @return Contiguity measure value.
    */
   public double getContiguityMeasure(ClusteredPixel solutionComponent,
@@ -132,7 +131,8 @@ public class AntForImageSegmentation extends Ant<ClusteredPixel> {
   }
 
   @Override
-  public List<ClusteredPixel> getNeighbourhood(Environment environment) {
+  public List<ClusteredPixel> getNeighbourhood(
+      EnvironmentForImageSegmentation environment) {
     List<ClusteredPixel> neighbourhood = new ArrayList<ClusteredPixel>();
 
     for (int cluster = 0; cluster < numberOfClusters; cluster++) {
@@ -146,7 +146,7 @@ public class AntForImageSegmentation extends Ant<ClusteredPixel> {
 
   @Override
   public Double getPheromoneTrailValue(ClusteredPixel solutionComponent,
-      Integer positionInSolution, Environment environment) {
+      Integer positionInSolution, EnvironmentForImageSegmentation environment) {
     double[][] pheromoneMatrix = environment.getPheromoneMatrix();
     double[][] problemGraph = environment.getProblemGraph();
 
@@ -160,7 +160,7 @@ public class AntForImageSegmentation extends Ant<ClusteredPixel> {
 
   @Override
   public void setPheromoneTrailValue(ClusteredPixel solutionComponent,
-      Environment environment, Double value) {
+      EnvironmentForImageSegmentation environment, Double value) {
     double[][] pheromoneMatrix = environment.getPheromoneMatrix();
     double[][] problemGraph = environment.getProblemGraph();
 
@@ -173,7 +173,7 @@ public class AntForImageSegmentation extends Ant<ClusteredPixel> {
   }
 
   @Override
-  public double getSolutionQuality(Environment environment) {
+  public double getSolutionQuality(EnvironmentForImageSegmentation environment) {
 
     if (partitionQuality < 0) {
       partitionQuality = 0.0;

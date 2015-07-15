@@ -1,21 +1,22 @@
 package pe.edu.pucp.acoseg.isula;
 
 import isula.aco.Ant;
-import isula.aco.Environment;
 import isula.aco.algorithms.maxmin.MaxMinConfigurationProvider;
 import isula.aco.algorithms.maxmin.UpdatePheromoneMatrixForMaxMin;
 import isula.image.util.ClusteredPixel;
 import pe.edu.pucp.acoseg.ProblemConfiguration;
 
-public class ImageSegmentationUpdatePheromoneMatrix extends
-    UpdatePheromoneMatrixForMaxMin<ClusteredPixel> {
+public class ImageSegmentationUpdatePheromoneMatrix
+    extends
+    UpdatePheromoneMatrixForMaxMin<ClusteredPixel, EnvironmentForImageSegmentation> {
 
   @Override
-  protected double getNewPheromoneValue(Ant<ClusteredPixel> bestAnt,
+  protected double getNewPheromoneValue(
+      Ant<ClusteredPixel, EnvironmentForImageSegmentation> bestAnt,
       int positionInSolution, ClusteredPixel solutionComponent,
       MaxMinConfigurationProvider configurationProvider) {
 
-    Environment environment = getEnvironment();
+    EnvironmentForImageSegmentation environment = getEnvironment();
     double contribution = 1 / bestAnt.getSolutionQuality(environment);
     double[][] pheromoneMatrix = environment.getPheromoneMatrix();
     double[][] problemGraph = environment.getProblemGraph();

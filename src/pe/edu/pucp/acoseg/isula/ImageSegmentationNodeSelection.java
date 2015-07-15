@@ -1,7 +1,6 @@
 package pe.edu.pucp.acoseg.isula;
 
 import isula.aco.ConfigurationProvider;
-import isula.aco.Environment;
 import isula.aco.algorithms.acs.PseudoRandomNodeSelection;
 import isula.image.util.ClusteredPixel;
 
@@ -9,10 +8,11 @@ import java.util.List;
 import java.util.Random;
 
 public class ImageSegmentationNodeSelection extends
-    PseudoRandomNodeSelection<ClusteredPixel> {
+    PseudoRandomNodeSelection<ClusteredPixel, EnvironmentForImageSegmentation> {
 
   @Override
-  protected void doIfNoNodeWasSelected(Environment environment,
+  protected void doIfNoNodeWasSelected(
+      EnvironmentForImageSegmentation environment,
       ConfigurationProvider configuration) {
 
     List<ClusteredPixel> neighbours = getAnt().getNeighbourhood(environment);

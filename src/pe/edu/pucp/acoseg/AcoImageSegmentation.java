@@ -22,7 +22,7 @@ public class AcoImageSegmentation {
   private static Logger logger = Logger.getLogger(AcoImageSegmentation.class
       .getName());
 
-  private AcoProblemSolver<ClusteredPixel> problemSolver;
+  private AcoProblemSolver<ClusteredPixel, EnvironmentForImageSegmentation> problemSolver;
 
   private ClusteredPixel[] solveProblem(double[][] imageGraph) throws Exception {
     ConfigurationProvider configurationProvider = ProblemConfiguration
@@ -37,15 +37,16 @@ public class AcoImageSegmentation {
         environment.getNumberOfClusters());
     antColony.buildColony(environment);
 
-    problemSolver = new AcoProblemSolver<ClusteredPixel>();
+    problemSolver = new AcoProblemSolver<ClusteredPixel, EnvironmentForImageSegmentation>();
 
     problemSolver.setConfigurationProvider(configurationProvider);
     problemSolver.setEnvironment(environment);
     problemSolver.setAntColony(antColony);
 
-    problemSolver.addDaemonActions(
-        new StartPheromoneMatrixForMaxMin<ClusteredPixel>(),
-        new ImageSegmentationUpdatePheromoneMatrix());
+    problemSolver
+        .addDaemonActions(
+            new StartPheromoneMatrixForMaxMin<ClusteredPixel, EnvironmentForImageSegmentation>(),
+            new ImageSegmentationUpdatePheromoneMatrix());
     antColony.addAntPolicies(new ImageSegmentationNodeSelection());
 
     problemSolver.solveProblem();
@@ -190,7 +191,7 @@ public class AcoImageSegmentation {
     return resultMatrix;
   }
 
-  public AcoProblemSolver<ClusteredPixel> getProblemSolver() {
+  public AcoProblemSolver<ClusteredPixel, EnvironmentForImageSegmentation> getProblemSolver() {
     return problemSolver;
   }
 
