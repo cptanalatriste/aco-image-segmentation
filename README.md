@@ -39,3 +39,19 @@ The implemented process has the following characteristics:
 * The Ant class avaible in Isula was extended to support this image clustering class. The ants for this problems have memory of the current position in the image, as well as a Map for Cluster storage. Since the calculation of the Solution Quality is expensive, it was also added as an instance variable.
 * This Ants are built so they only consider Cerebrum pixels. That information was provided but the previous binary thresholding algorithm.
 * The Max-Min Ant System policies available in Isula were reused with minor customization. This includes pheromone update and node selection.
+
+The results 
+-----------
+We use an MR Brain image as an input. This was provided by the BrainWeb Database: http://brainweb.bic.mni.mcgill.ca/brainweb/
+
+![Original Image](https://raw.githubusercontent.com/cptanalatriste/aco-image-thresholding/master/inputImg/19952transverse2_64.gif)
+
+The program extracts three segments from the image: Brain Matter, White Matter and CLF. Here's the segment corresponding to the Grey Matter :
+
+![Segments](https://raw.githubusercontent.com/cptanalatriste/aco-image-segmentation/master/outputImg/2_19952transverse2_64_cluster.bmp)
+
+More about Isula
+----------------
+Visit the Isula Framework site: http://cptanalatriste.github.io/isula/
+
+Review the Isula JavaDoc: http://cptanalatriste.github.io/isula/doc/
