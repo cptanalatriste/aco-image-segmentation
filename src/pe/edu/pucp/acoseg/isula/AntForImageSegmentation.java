@@ -173,7 +173,7 @@ public class AntForImageSegmentation extends
   }
 
   @Override
-  public double getSolutionQuality(EnvironmentForImageSegmentation environment) {
+  public double getSolutionCost(EnvironmentForImageSegmentation environment) {
 
     if (partitionQuality < 0) {
       partitionQuality = 0.0;

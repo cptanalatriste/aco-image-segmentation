@@ -26,8 +26,8 @@ public class AntColonyTest {
         .getBestPerformingAnt(dummyEnvironment);
     AntForImageSegmentation antWithPerfectPartition = TestDataGenerator
         .getAntWithPerfectPartition();
-    assertEquals(antWithPerfectPartition.getSolutionQuality(dummyEnvironment),
-        bestAnt.getSolutionQuality(dummyEnvironment), 0.001);
+    assertEquals(antWithPerfectPartition.getSolutionCost(dummyEnvironment),
+        bestAnt.getSolutionCost(dummyEnvironment), 0.001);
   }
 
   @Test
@@ -41,14 +41,14 @@ public class AntColonyTest {
 
     dummySolver.setAntColony(antColony);
     dummySolver.setEnvironment(dummyEnvironment);
-    dummySolver.setBestSolutionQuality(TestDataGenerator
-        .getAntWithTwistedPartition().getSolutionQuality(dummyEnvironment));
+    dummySolver.setBestSolutionCost(TestDataGenerator
+        .getAntWithTwistedPartition().getSolutionCost(dummyEnvironment));
 
     dummySolver.updateBestSolution(dummyEnvironment);
 
     AntForImageSegmentation antWithPerfectPartition = TestDataGenerator
         .getAntWithPerfectPartition();
-    assertEquals(antWithPerfectPartition.getSolutionQuality(dummyEnvironment),
-        dummySolver.getBestSolutionQuality(), 0.001);
+    assertEquals(antWithPerfectPartition.getSolutionCost(dummyEnvironment),
+        dummySolver.getBestSolutionCost(), 0.001);
   }
 }

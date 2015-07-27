@@ -34,12 +34,12 @@ public class AntTest {
 
     AntForImageSegmentation antForTest = TestDataGenerator
         .getAntWithPerfectPartition();
-    double perfectCluster = antForTest.getSolutionQuality(TestDataGenerator
+    double perfectCluster = antForTest.getSolutionCost(TestDataGenerator
         .getDummyEnvironment());
 
     AntForImageSegmentation drunkAnt = TestDataGenerator
         .getAntWithTwistedPartition();
-    double messyCluster = drunkAnt.getSolutionQuality(TestDataGenerator
+    double messyCluster = drunkAnt.getSolutionCost(TestDataGenerator
         .getDummyEnvironment());
 
     assertTrue("Optimal value: " + perfectCluster

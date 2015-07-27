@@ -17,7 +17,7 @@ public class ImageSegmentationUpdatePheromoneMatrix
       MaxMinConfigurationProvider configurationProvider) {
 
     EnvironmentForImageSegmentation environment = getEnvironment();
-    double contribution = 1 / bestAnt.getSolutionQuality(environment);
+    double contribution = 1 / bestAnt.getSolutionCost(environment);
     double[][] pheromoneMatrix = environment.getPheromoneMatrix();
     double[][] problemGraph = environment.getProblemGraph();
 
