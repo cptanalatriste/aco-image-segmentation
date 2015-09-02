@@ -65,3 +65,7 @@ More about Isula
 Visit the Isula Framework site: http://cptanalatriste.github.io/isula/
 
 Review the Isula JavaDoc: http://cptanalatriste.github.io/isula/doc/
+
+Questions, issues or support?
+----------------------------
+Feel free to contact me at carlos.gavidia@pucp.edu.pe.
