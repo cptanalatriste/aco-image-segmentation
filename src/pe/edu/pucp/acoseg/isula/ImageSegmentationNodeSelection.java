@@ -11,7 +11,7 @@ public class ImageSegmentationNodeSelection extends
     PseudoRandomNodeSelection<ClusteredPixel, EnvironmentForImageSegmentation> {
 
   @Override
-  protected void doIfNoNodeWasSelected(
+  protected boolean doIfNoNodeWasSelected(
       EnvironmentForImageSegmentation environment,
       ConfigurationProvider configuration) {
 
@@ -20,6 +20,7 @@ public class ImageSegmentationNodeSelection extends
         .size()));
 
     getAnt().visitNode(imagePixel);
+    return true;
   }
 
 }

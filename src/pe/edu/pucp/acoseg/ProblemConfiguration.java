@@ -14,7 +14,7 @@ public class ProblemConfiguration implements ConfigurationProvider,
   // https://www.eecs.berkeley.edu/Research/Projects/CS/vision/bsds/BSDS300/html/dataset/images/gray/296059.html
   // http://brainweb.bic.mni.mcgill.ca/brainweb/anatomic_normal_20.html
   public static final String INPUT_DIRECTORY = 
-      "C:/Users/CarlosG/Documents/GitHub/aco-image-segmentation/inputImg/";
+	      "C:/Users/Carlos G. Gavidia/git/aco-image-segmentation/inputImg/";
 
   static final String IMAGE_FILE = "19952transverse2_64.gif";
   static final String OUTPUT_IMAGE_FILE = IMAGE_FILE.substring(0,
@@ -81,7 +81,7 @@ public class ProblemConfiguration implements ConfigurationProvider,
   private int maxIterations = 5;
 
   private String outputDirectory = 
-      "C:/Users/CarlosG/Documents/GitHub/aco-image-segmentation/outputImg/";
+      "C:/Users/Carlos G. Gavidia/git/aco-image-segmentation/outputImg/";
 
   private ProblemConfiguration() {
 

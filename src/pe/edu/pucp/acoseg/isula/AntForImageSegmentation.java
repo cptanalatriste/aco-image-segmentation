@@ -159,7 +159,7 @@ public class AntForImageSegmentation extends
   }
 
   @Override
-  public void setPheromoneTrailValue(ClusteredPixel solutionComponent,
+  public void setPheromoneTrailValue(ClusteredPixel solutionComponent,Integer positionInComponent,
       EnvironmentForImageSegmentation environment, Double value) {
     double[][] pheromoneMatrix = environment.getPheromoneMatrix();
     double[][] problemGraph = environment.getProblemGraph();
