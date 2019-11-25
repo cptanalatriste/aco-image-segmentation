@@ -46,7 +46,7 @@ We use an MR Brain image as an input. This was provided by the BrainWeb Database
 
 ![Original Image](https://raw.githubusercontent.com/cptanalatriste/aco-image-thresholding/master/inputImg/19952transverse2_64.gif)
 
-The program extracts three segments from the image: Brain Matter, White Matter and CLF. Here's the segment corresponding to the Grey Matter:
+The program extracts three segments from the image: Brain Matter, White Matter and CLF. Here's the segment corresponding to the white matter:
 
 ![Segments](https://raw.githubusercontent.com/cptanalatriste/aco-image-segmentation/master/outputImg/2_19952transverse2_64_cluster.bmp)
 
