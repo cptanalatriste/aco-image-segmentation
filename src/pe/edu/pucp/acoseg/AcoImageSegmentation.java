@@ -151,12 +151,12 @@ public class AcoImageSegmentation {
   private static int[][] generateSegmentedImagePerCluster(int clusterNumber,
       ClusteredPixel[] resultingPartition, Environment environment) {
 
-    int[][] resultMatrix = new int[environment.getProblemGraph().length][environment
-        .getProblemGraph()[0].length];
+    int[][] resultMatrix = new int[environment.getProblemRepresentation().length][environment
+        .getProblemRepresentation()[0].length];
 
     int pixelCounter = 0;
-    for (int i = 0; i < environment.getProblemGraph().length; i++) {
-      for (int j = 0; j < environment.getProblemGraph()[0].length; j++) {
+    for (int i = 0; i < environment.getProblemRepresentation().length; i++) {
+      for (int j = 0; j < environment.getProblemRepresentation()[0].length; j++) {
         int greyscaleValue = ProblemConfiguration.GRAYSCALE_MIN_RANGE;
         if (resultingPartition[pixelCounter].getCluster() == clusterNumber) {
           greyscaleValue = ProblemConfiguration.GRAYSCALE_MAX_RANGE / 2;
@@ -170,8 +170,8 @@ public class AcoImageSegmentation {
 
   static int[][] generateSegmentedImage(ClusteredPixel[] resultingPartition,
       EnvironmentForImageSegmentation environment) {
-    int[][] resultMatrix = new int[environment.getProblemGraph().length][environment
-        .getProblemGraph()[0].length];
+    int[][] resultMatrix = new int[environment.getProblemRepresentation().length][environment
+        .getProblemRepresentation()[0].length];
 
     for (ClusteredPixel clusteredPixel : resultingPartition) {
       int cluster = clusteredPixel.getCluster();

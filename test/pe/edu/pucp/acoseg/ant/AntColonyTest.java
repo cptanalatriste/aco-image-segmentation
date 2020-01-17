@@ -15,40 +15,40 @@ import pe.edu.pucp.acoseg.test.TestDataGenerator;
 
 public class AntColonyTest {
 
-  // This comments are temporary, until stabilization
-  @Test
-  public void testGetBestAnt() throws InvalidInputException {
-    ImageSegmentationAntColony antColony = TestDataGenerator
-        .getDummyAntColony();
-    EnvironmentForImageSegmentation dummyEnvironment = TestDataGenerator
-        .getDummyEnvironment();
-    AntForImageSegmentation bestAnt = (AntForImageSegmentation) antColony
-        .getBestPerformingAnt(dummyEnvironment);
-    AntForImageSegmentation antWithPerfectPartition = TestDataGenerator
-        .getAntWithPerfectPartition();
-    assertEquals(antWithPerfectPartition.getSolutionCost(dummyEnvironment),
-        bestAnt.getSolutionCost(dummyEnvironment), 0.001);
-  }
+    // This comments are temporary, until stabilization
+    @Test
+    public void testGetBestAnt() throws InvalidInputException {
+        ImageSegmentationAntColony antColony = TestDataGenerator
+                .getDummyAntColony();
+        EnvironmentForImageSegmentation dummyEnvironment = TestDataGenerator
+                .getDummyEnvironment();
+        AntForImageSegmentation bestAnt = (AntForImageSegmentation) antColony
+                .getBestPerformingAnt(dummyEnvironment);
+        AntForImageSegmentation antWithPerfectPartition = TestDataGenerator
+                .getAntWithPerfectPartition();
+        assertEquals(antWithPerfectPartition.getSolutionCost(dummyEnvironment),
+                bestAnt.getSolutionCost(dummyEnvironment), 0.001);
+    }
 
-  @Test
-  public void testRecordBestSolution() throws InvalidInputException {
-    EnvironmentForImageSegmentation dummyEnvironment = TestDataGenerator
-        .getDummyEnvironment();
-    AcoProblemSolver<ClusteredPixel, EnvironmentForImageSegmentation> dummySolver 
-        = new AcoProblemSolver<ClusteredPixel, EnvironmentForImageSegmentation>();
-    ImageSegmentationAntColony antColony = TestDataGenerator
-        .getDummyAntColony();
+    @Test
+    public void testRecordBestSolution() throws InvalidInputException {
+        EnvironmentForImageSegmentation dummyEnvironment = TestDataGenerator
+                .getDummyEnvironment();
+        AcoProblemSolver<ClusteredPixel, EnvironmentForImageSegmentation> dummySolver
+                = new AcoProblemSolver<ClusteredPixel, EnvironmentForImageSegmentation>();
+        ImageSegmentationAntColony antColony = TestDataGenerator
+                .getDummyAntColony();
 
-    dummySolver.setAntColony(antColony);
-    dummySolver.setEnvironment(dummyEnvironment);
-    dummySolver.setBestSolutionCost(TestDataGenerator
-        .getAntWithTwistedPartition().getSolutionCost(dummyEnvironment));
+        dummySolver.setAntColony(antColony);
+        dummySolver.setEnvironment(dummyEnvironment);
+        dummySolver.setBestSolutionCost(TestDataGenerator
+                .getAntWithTwistedPartition().getSolutionCost(dummyEnvironment));
 
-    dummySolver.updateBestSolution(dummyEnvironment);
+        dummySolver.evaluateIterationPerformance(-1, dummyEnvironment);
 
-    AntForImageSegmentation antWithPerfectPartition = TestDataGenerator
-        .getAntWithPerfectPartition();
-    assertEquals(antWithPerfectPartition.getSolutionCost(dummyEnvironment),
-        dummySolver.getBestSolutionCost(), 0.001);
-  }
+        AntForImageSegmentation antWithPerfectPartition = TestDataGenerator
+                .getAntWithPerfectPartition();
+        assertEquals(antWithPerfectPartition.getSolutionCost(dummyEnvironment),
+                dummySolver.getBestSolutionCost(), 0.001);
+    }
 }

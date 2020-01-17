@@ -13,8 +13,7 @@ public class ProblemConfiguration implements ConfigurationProvider,
   // Credits:
   // https://www.eecs.berkeley.edu/Research/Projects/CS/vision/bsds/BSDS300/html/dataset/images/gray/296059.html
   // http://brainweb.bic.mni.mcgill.ca/brainweb/anatomic_normal_20.html
-  public static final String INPUT_DIRECTORY = 
-	      "C:/Users/Carlos G. Gavidia/git/aco-image-segmentation/inputImg/";
+  public static final String INPUT_DIRECTORY = "inputImg/";
 
   static final String IMAGE_FILE = "19952transverse2_64.gif";
   static final String OUTPUT_IMAGE_FILE = IMAGE_FILE.substring(0,
@@ -62,7 +61,7 @@ public class ProblemConfiguration implements ConfigurationProvider,
         + COST_FUNCTION_PARAMETER_B + "\n";
     result = result + " Initial Pheromone Value: " + INITIAL_PHEROMONE_VALUE
         + "\n";
-    result = result + " Number of Clústers: " + numberOfClusters + "\n";
+    result = result + " Number of Clusters: " + numberOfClusters + "\n";
 
     return result;
   }
@@ -80,8 +79,7 @@ public class ProblemConfiguration implements ConfigurationProvider,
   private int numberOfAnts = 10;
   private int maxIterations = 5;
 
-  private String outputDirectory = 
-      "C:/Users/Carlos G. Gavidia/git/aco-image-segmentation/outputImg/";
+  private String outputDirectory = "/home/carlos/";
 
   private ProblemConfiguration() {
 
