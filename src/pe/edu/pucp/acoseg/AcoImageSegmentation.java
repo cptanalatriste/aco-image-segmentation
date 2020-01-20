@@ -14,185 +14,184 @@ import pe.edu.pucp.acoseg.isula.ImageSegmentationNodeSelection;
 import pe.edu.pucp.acoseg.isula.ImageSegmentationUpdatePheromoneMatrix;
 import pe.edu.pucp.acothres.AcoImageThresholding;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Logger;
 
 public class AcoImageSegmentation {
 
-  private static Logger logger = Logger.getLogger(AcoImageSegmentation.class
-      .getName());
+    private static Logger logger = Logger.getLogger(AcoImageSegmentation.class
+            .getName());
 
-  private AcoProblemSolver<ClusteredPixel, EnvironmentForImageSegmentation> problemSolver;
+    private AcoProblemSolver<ClusteredPixel, EnvironmentForImageSegmentation> problemSolver;
 
-  private ClusteredPixel[] solveProblem(double[][] imageGraph) throws Exception {
-    ConfigurationProvider configurationProvider = ProblemConfiguration
-        .getInstance();
-    EnvironmentForImageSegmentation environment = new EnvironmentForImageSegmentation(
-        imageGraph, ProblemConfiguration.getInstance().getNumberOfClusters());
+    private ClusteredPixel[] solveProblem(double[][] imageGraph) throws Exception {
+        ConfigurationProvider configurationProvider = ProblemConfiguration
+                .getInstance();
+        EnvironmentForImageSegmentation environment = new EnvironmentForImageSegmentation(
+                imageGraph, ProblemConfiguration.getInstance().getNumberOfClusters());
 
-    // TODO(cgavidia): Maybe the constructor should take the Configuration
-    // Provider.
-    ImageSegmentationAntColony antColony = new ImageSegmentationAntColony(
-        configurationProvider.getNumberOfAnts(),
-        environment.getNumberOfClusters());
-    antColony.buildColony(environment);
+        // TODO(cgavidia): Maybe the constructor should take the Configuration
+        // Provider.
+        ImageSegmentationAntColony antColony = new ImageSegmentationAntColony(
+                configurationProvider.getNumberOfAnts(),
+                environment.getNumberOfClusters());
+        antColony.buildColony(environment);
 
-    problemSolver = new AcoProblemSolver<ClusteredPixel, EnvironmentForImageSegmentation>();
+        problemSolver = new AcoProblemSolver<ClusteredPixel, EnvironmentForImageSegmentation>();
 
-    problemSolver.setConfigurationProvider(configurationProvider);
-    problemSolver.setEnvironment(environment);
-    problemSolver.setAntColony(antColony);
+        problemSolver.setConfigurationProvider(configurationProvider);
+        problemSolver.setEnvironment(environment);
+        problemSolver.setAntColony(antColony);
 
-    problemSolver
-        .addDaemonActions(
-            new StartPheromoneMatrixForMaxMin<ClusteredPixel, EnvironmentForImageSegmentation>(),
-            new ImageSegmentationUpdatePheromoneMatrix());
-    antColony.addAntPolicies(new ImageSegmentationNodeSelection());
+        problemSolver
+                .addDaemonActions(
+                        new StartPheromoneMatrixForMaxMin<ClusteredPixel, EnvironmentForImageSegmentation>(),
+                        new ImageSegmentationUpdatePheromoneMatrix());
+        antColony.addAntPolicies(new ImageSegmentationNodeSelection());
 
-    problemSolver.solveProblem();
-    ClusteredPixel[] bestPartition = problemSolver.getBestSolution();
+        problemSolver.solveProblem();
+        ClusteredPixel[] bestPartition = problemSolver.getBestSolution();
 
-    return bestPartition;
-  }
-
-  /**
-   * Start the ACO-based segmentation process.
-   * 
-   * @param args
-   *          Program arguments.
-   */
-  public static void main(String[] args) {
-    logger.info("ACO FOR IMAGE SEGMENTATION");
-
-    try {
-      performSegmentation();
-      new TestSuiteForImageSegmentation().executeReport();
-
-    } catch (Exception e) {
-      e.printStackTrace();
+        return bestPartition;
     }
 
-  }
+    /**
+     * Start the ACO-based segmentation process.
+     *
+     * @param args Program arguments.
+     */
+    public static void main(String[] args) {
+        logger.info("ACO FOR IMAGE SEGMENTATION");
 
-  /**
-   * Launches the segmentation process.
-   * 
-   * @return An instance of this class.
-   * @throws IOException
-   *           In case of reading/writing problems.
-   * @throws Exception
-   *           Application-level exceptions.
-   */
-  public static AcoImageSegmentation performSegmentation() throws IOException,
-      Exception {
-    String imageFile = ProblemConfiguration.INPUT_DIRECTORY
-        + ProblemConfiguration.IMAGE_FILE;
-    logger.info("Data file: " + imageFile);
+        try {
+            performSegmentation();
+            new TestSuiteForImageSegmentation().executeReport();
 
-    double[][] imageGraph = returnImageAsArray(imageFile);
-
-    ClusteredPixel[] resultingPartition = null;
-    AcoImageSegmentation acoImageSegmentation = null;
-    acoImageSegmentation = new AcoImageSegmentation();
-    resultingPartition = acoImageSegmentation.solveProblem(imageGraph);
-
-    logger.info("Generating segmented image");
-    int[][] segmentedImageAsMatrix = generateSegmentedImage(resultingPartition,
-        (EnvironmentForImageSegmentation) acoImageSegmentation.problemSolver
-            .getEnvironment());
-    ImageFileHelper.generateImageFromArray(segmentedImageAsMatrix,
-        ProblemConfiguration.getInstance().getOutputDirectory()
-            + ProblemConfiguration.OUTPUT_IMAGE_FILE);
-
-    logger.info("Generating images per cluster");
-    for (int i = 0; i < ProblemConfiguration.getInstance()
-        .getNumberOfClusters(); i++) {
-      int[][] clusterImage = generateSegmentedImagePerCluster(i,
-          resultingPartition,
-          acoImageSegmentation.problemSolver.getEnvironment());
-      ImageFileHelper.generateImageFromArray(clusterImage, ProblemConfiguration
-          .getInstance().getOutputDirectory()
-          + i
-          + "_"
-          + ProblemConfiguration.CLUSTER_IMAGE_FILE);
-
-    }
-    return acoImageSegmentation;
-  }
-
-  private static double[][] returnImageAsArray(String imageFile)
-      throws IOException, Exception {
-    int[][] imageGraphAsInt = ImageFileHelper.getImageArrayFromFile(imageFile);
-
-    logger.info("Starting background filtering process");
-
-    int[][] backgroundFilterMask = AcoImageThresholding
-        .getSegmentedImageAsArray(imageFile, true);
-
-    imageGraphAsInt = ImageFileHelper.applyFilter(imageGraphAsInt,
-        backgroundFilterMask);
-    logger.info("Generating filtered image");
-    ImageFileHelper.generateImageFromArray(imageGraphAsInt,
-        ProblemConfiguration.getInstance().getOutputDirectory()
-            + ProblemConfiguration.FILTERED_IMAGE_FILE);
-
-    // TODO(cgavidia): Simple hack to support the type. It should be a generic
-    // instead.
-    double[][] imageGraph = new double[imageGraphAsInt.length][imageGraphAsInt[0].length];
-    for (int i = 0; i < imageGraphAsInt.length; i++) {
-      for (int j = 0; j < imageGraphAsInt[0].length; j++) {
-        imageGraph[i][j] = imageGraphAsInt[i][j];
-      }
-    }
-
-    return imageGraph;
-  }
-
-  private static int[][] generateSegmentedImagePerCluster(int clusterNumber,
-      ClusteredPixel[] resultingPartition, Environment environment) {
-
-    int[][] resultMatrix = new int[environment.getProblemRepresentation().length][environment
-        .getProblemRepresentation()[0].length];
-
-    int pixelCounter = 0;
-    for (int i = 0; i < environment.getProblemRepresentation().length; i++) {
-      for (int j = 0; j < environment.getProblemRepresentation()[0].length; j++) {
-        int greyscaleValue = ProblemConfiguration.GRAYSCALE_MIN_RANGE;
-        if (resultingPartition[pixelCounter].getCluster() == clusterNumber) {
-          greyscaleValue = ProblemConfiguration.GRAYSCALE_MAX_RANGE / 2;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        resultMatrix[i][j] = greyscaleValue;
-        pixelCounter++;
-      }
-    }
-    return resultMatrix;
-  }
-
-  static int[][] generateSegmentedImage(ClusteredPixel[] resultingPartition,
-      EnvironmentForImageSegmentation environment) {
-    int[][] resultMatrix = new int[environment.getProblemRepresentation().length][environment
-        .getProblemRepresentation()[0].length];
-
-    for (ClusteredPixel clusteredPixel : resultingPartition) {
-      int cluster = clusteredPixel.getCluster();
-      if (cluster != ProblemConfiguration.ABSENT_PIXEL_CLUSTER) {
-        int numberOfClusters = environment.getNumberOfClusters();
-        int greyScaleValue = (int) ((cluster + 1.0) 
-            / numberOfClusters * ProblemConfiguration.GRAYSCALE_MAX_RANGE);
-        resultMatrix[clusteredPixel.getxCoordinate()][clusteredPixel
-            .getyCoordinate()] = greyScaleValue;
-      } else {
-        resultMatrix[clusteredPixel.getxCoordinate()][clusteredPixel
-            .getyCoordinate()] = ProblemConfiguration.GRAYSCALE_MIN_RANGE;
-      }
 
     }
 
-    return resultMatrix;
-  }
+    /**
+     * Launches the segmentation process.
+     *
+     * @return An instance of this class.
+     * @throws IOException In case of reading/writing problems.
+     * @throws Exception   Application-level exceptions.
+     */
+    public static AcoImageSegmentation performSegmentation() throws IOException,
+            Exception {
+        String imageFile = ProblemConfiguration.IMAGE_DIRECTORY
+                + ProblemConfiguration.IMAGE_FILE;
+        logger.info("Data file: " + imageFile);
 
-  public AcoProblemSolver<ClusteredPixel, EnvironmentForImageSegmentation> getProblemSolver() {
-    return problemSolver;
-  }
+        double[][] imageGraph = returnImageAsArray(imageFile);
+
+        ClusteredPixel[] resultingPartition = null;
+        AcoImageSegmentation acoImageSegmentation = null;
+        acoImageSegmentation = new AcoImageSegmentation();
+        resultingPartition = acoImageSegmentation.solveProblem(imageGraph);
+
+        logger.info("Generating segmented image");
+        int[][] segmentedImageAsMatrix = generateSegmentedImage(resultingPartition,
+                (EnvironmentForImageSegmentation) acoImageSegmentation.problemSolver
+                        .getEnvironment());
+        ImageFileHelper.generateImageFromArray(segmentedImageAsMatrix,
+                ProblemConfiguration.getInstance().getOutputDirectory()
+                        + ProblemConfiguration.OUTPUT_IMAGE_FILE);
+
+        logger.info("Generating images per cluster");
+        for (int i = 0; i < ProblemConfiguration.getInstance()
+                .getNumberOfClusters(); i++) {
+            int[][] clusterImage = generateSegmentedImagePerCluster(i,
+                    resultingPartition,
+                    acoImageSegmentation.problemSolver.getEnvironment());
+            ImageFileHelper.generateImageFromArray(clusterImage, ProblemConfiguration
+                    .getInstance().getOutputDirectory()
+                    + i
+                    + "_"
+                    + ProblemConfiguration.CLUSTER_IMAGE_FILE);
+
+        }
+        return acoImageSegmentation;
+    }
+
+    private static double[][] returnImageAsArray(String fileName)
+            throws IOException, Exception {
+
+        File imageFile = new File(ImageFileHelper.class.getClassLoader().getResource(fileName).getFile());
+        int[][] imageGraphAsInt = ImageFileHelper.getImageArrayFromFile(imageFile);
+        logger.info("Starting background filtering process");
+
+        int[][] backgroundFilterMask = AcoImageThresholding
+                .getSegmentedImageAsArray(imageFile, true);
+
+        imageGraphAsInt = ImageFileHelper.applyFilter(imageGraphAsInt,
+                backgroundFilterMask);
+        logger.info("Generating filtered image");
+        ImageFileHelper.generateImageFromArray(imageGraphAsInt,
+                ProblemConfiguration.getInstance().getOutputDirectory()
+                        + ProblemConfiguration.FILTERED_IMAGE_FILE);
+
+        // TODO(cgavidia): Simple hack to support the type. It should be a generic
+        // instead.
+        double[][] imageGraph = new double[imageGraphAsInt.length][imageGraphAsInt[0].length];
+        for (int i = 0; i < imageGraphAsInt.length; i++) {
+            for (int j = 0; j < imageGraphAsInt[0].length; j++) {
+                imageGraph[i][j] = imageGraphAsInt[i][j];
+            }
+        }
+
+        return imageGraph;
+    }
+
+    private static int[][] generateSegmentedImagePerCluster(int clusterNumber,
+                                                            ClusteredPixel[] resultingPartition, Environment environment) {
+
+        int[][] resultMatrix = new int[environment.getProblemRepresentation().length][environment
+                .getProblemRepresentation()[0].length];
+
+        int pixelCounter = 0;
+        for (int i = 0; i < environment.getProblemRepresentation().length; i++) {
+            for (int j = 0; j < environment.getProblemRepresentation()[0].length; j++) {
+                int greyscaleValue = ProblemConfiguration.GRAYSCALE_MIN_RANGE;
+                if (resultingPartition[pixelCounter].getCluster() == clusterNumber) {
+                    greyscaleValue = ProblemConfiguration.GRAYSCALE_MAX_RANGE / 2;
+                }
+                resultMatrix[i][j] = greyscaleValue;
+                pixelCounter++;
+            }
+        }
+        return resultMatrix;
+    }
+
+    static int[][] generateSegmentedImage(ClusteredPixel[] resultingPartition,
+                                          EnvironmentForImageSegmentation environment) {
+        int[][] resultMatrix = new int[environment.getProblemRepresentation().length][environment
+                .getProblemRepresentation()[0].length];
+
+        for (ClusteredPixel clusteredPixel : resultingPartition) {
+            int cluster = clusteredPixel.getCluster();
+            if (cluster != ProblemConfiguration.ABSENT_PIXEL_CLUSTER) {
+                int numberOfClusters = environment.getNumberOfClusters();
+                int greyScaleValue = (int) ((cluster + 1.0)
+                        / numberOfClusters * ProblemConfiguration.GRAYSCALE_MAX_RANGE);
+                resultMatrix[clusteredPixel.getxCoordinate()][clusteredPixel
+                        .getyCoordinate()] = greyScaleValue;
+            } else {
+                resultMatrix[clusteredPixel.getxCoordinate()][clusteredPixel
+                        .getyCoordinate()] = ProblemConfiguration.GRAYSCALE_MIN_RANGE;
+            }
+
+        }
+
+        return resultMatrix;
+    }
+
+    public AcoProblemSolver<ClusteredPixel, EnvironmentForImageSegmentation> getProblemSolver() {
+        return problemSolver;
+    }
 
 }

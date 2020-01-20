@@ -49,11 +49,6 @@ public class TestSuiteForImageSegmentation {
             String maximumJciClusterFile = "";
             for (int i = 0; i < ProblemConfiguration.getInstance()
                     .getNumberOfClusters(); i++) {
-                String currentFile = ProblemConfiguration.getInstance()
-                        .getOutputDirectory()
-                        + i
-                        + "_"
-                        + ProblemConfiguration.CLUSTER_IMAGE_FILE;
 
                 String imageToValidate = ProblemConfiguration.getInstance()
                         .getOutputDirectory()
@@ -67,7 +62,7 @@ public class TestSuiteForImageSegmentation {
                 comparator.executeComparison();
                 if (comparator.getJaccardSimilarityIndex() > maximumJci) {
                     maximumJci = comparator.getJaccardSimilarityIndex();
-                    maximumJciClusterFile = currentFile;
+                    maximumJciClusterFile = imageToValidate;
                 }
 
             }
