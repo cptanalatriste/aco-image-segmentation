@@ -46,9 +46,9 @@ We use an MR Brain image as an input. This was provided by the BrainWeb Database
 
 ![Original Image](https://github.com/cptanalatriste/aco-image-segmentation/blob/master/src/inputImg/19952transverse2_64.gif?raw=true)
 
-The program extracts three segments from the image: Brain Matter, White Matter and CLF. Here's the segment corresponding to the white matter:
+The program extracts three segments from the image: Brain Matter, White Matter and CLF. Here's the segment corresponding to the grey matter:
 
-![Segments](https://raw.githubusercontent.com/cptanalatriste/aco-image-segmentation/master/outputImg/2_19952transverse2_64_cluster.bmp)
+![Segments](https://raw.githubusercontent.com/cptanalatriste/aco-image-segmentation/master/0_19952transverse2_64_cluster.bmp)
 
 How to use this code
 --------------------
