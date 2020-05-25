@@ -80,7 +80,7 @@ public class ProblemConfiguration implements ConfigurationProvider,
     private int numberOfAnts = 10;
     private int maxIterations = 5;
 
-    private String outputDirectory = "/home/carlos/";
+    private String outputDirectory = "/Users/cgavidia/";
 
     private ProblemConfiguration() {
 
@@ -94,7 +94,7 @@ public class ProblemConfiguration implements ConfigurationProvider,
      * @throws Exception In case of unsupported parameter.
      */
     public double getParameter(AcoParameter parameter) throws Exception {
-        double result = 0.0;
+        double result;
         switch (parameter) {
             case HEURISTIC_IMPORTANCE:
                 result = this.getHeuristicImportance();

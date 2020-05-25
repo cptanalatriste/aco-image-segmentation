@@ -55,7 +55,7 @@ How to use this code
 The code uploaded to this GitHub Repository corresponds to a Maven Java Project. 
 As such, it is strongly recommended that you have Maven installed before working with it.
 
-**This project depends on the Isula Framework**.  You need to download first the Isula Framework Project available on this Github Repository: https://github.com/cptanalatriste/isula
+**This project depends on the Isula Framework**, available at this Github Repository: https://github.com/cptanalatriste/isula .
 
 This project also depends on an ACO-based procedure for image thresholding. The `aco-image-thresholding` project that contains it is available on this Github Repository: https://github.com/cptanalatriste/aco-image-thresholding 
 
